@@ -13,14 +13,14 @@ public class AuthController {
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
    @RequestMapping("/login_view")
    public String goLogin(Model model) {
-      return "common/login";
+      return "public:common/login.tiles";
    }
    @RequestMapping("/login")
    public String login() {
-      return "common/main";
+      return "public:common/main.tiles";
    }
    @RequestMapping("/main")
    public String home() {
-      return "common/main";
+      return "public:common/main.tiles";
    }
 }

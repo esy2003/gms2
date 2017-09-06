@@ -205,7 +205,7 @@ app.navbar=(function(){
          app.controller.moveTo('board','list');
       });
       $('.dropdown-menu a').eq(10).on('click',function(){
-         app.controller.moveTo('board','deatail');
+         app.controller.moveTo('board','detail');
       });
       $('.dropdown-menu a').eq(11).on('click',function(){
          app.controller.moveTo('board','delete');

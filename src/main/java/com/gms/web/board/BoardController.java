@@ -14,22 +14,22 @@ public class BoardController {
    @RequestMapping("/add")
    public String boardAdd(Model model) {
       logger.info("나온다 보드.나온다 보드.");
-      return "board/board_write";
+      return "public:board/board_write.tiles";
    }
    @RequestMapping("/list")
    public String boardList(Model model) {
-      return "board/board_list";
+      return "public:board/board_list.tiles";
    }
    @RequestMapping("/detail")
    public String boardDetail(Model model) {
-      return "board/board_detail";
+      return "public:board/board_detail.tiles";
    }
    @RequestMapping("/update")
    public String boardUpdate(Model model) {
-      return "board/board_update";
+      return "public:board/board_update.tiles";
    }
    @RequestMapping("/delete")
    public String boardDelete(Model model) {
-      return "board/board_delete";
+      return "public:board/board_delete.tiles";
    }
 }

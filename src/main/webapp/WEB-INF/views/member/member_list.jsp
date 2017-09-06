@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../common/common_head.jsp"></jsp:include>
-	<div id="gms-container">
 	<div class="row">
   <div class="col-lg-6" style="width:500px; margin:0 auto;">
     <div class="input-group">
@@ -74,6 +72,3 @@
     </c:if>
   </ul>
 </nav>
-	</div>
-
-<jsp:include page="../common/footer.jsp"></jsp:include>

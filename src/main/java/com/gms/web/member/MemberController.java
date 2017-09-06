@@ -14,22 +14,22 @@ public class MemberController {
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
    @RequestMapping("/add")
    public String memberAdd(Model model) {
-      return "member/member_add";
+      return "public:member/member_add.tiles";
    }
    @RequestMapping("/list")
    public String memberList(Model model) {
-      return "member/member_list";
+      return "public:member/member_list.tiles";
    }
    @RequestMapping("/detail")
    public String memberDetail(Model model) {
-      return "member/member_detail";
+      return "public:member/member_detail.tiles";
    }
    @RequestMapping("/update")
    public String memberUpdate(Model model) {
-      return "member/member_update";
+      return "public:member/member_update.tiles";
    }
    @RequestMapping("/delete")
    public String memberDelete(Model model) {
-      return "member/member_delete";
+      return "public:member/member_delete.tiles";
    }
 }

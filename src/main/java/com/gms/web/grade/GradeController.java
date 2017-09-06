@@ -14,22 +14,22 @@ public class GradeController {
    @RequestMapping("/add")
    public String gradeAdd(Model model) {
       logger.info("나온다.");
-      return "grade/grade_add";
+      return "public:grade/grade_add.tiles";
    }
    @RequestMapping("/list")
    public String gradeList(Model model) {
-      return "grade/grade_list";
+      return "public:grade/grade_list.tiles";
    }
    @RequestMapping("/detail")
    public String gradeDetail(Model model) {
-      return "grade/grade_detail";
+      return "public:grade/grade_detail.tiles";
    }
    @RequestMapping("/update")
    public String gradeUpdate(Model model) {
-      return "grade/grade_update";
+      return "public:grade/grade_update.tiles";
    }
    @RequestMapping("/delete")
    public String gradeDelete(Model model) {
-      return "grade/grade_delete";
+      return "public:grade/grade_delete.tiles";
    }
 }

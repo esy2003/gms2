@@ -1,5 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:include page="../common/common_head.jsp"/>
 
            
 		<div class="container" style="width:60%">
@@ -61,7 +60,6 @@
 								<span id="result"></span>
 							</div>
 						</div>
-
 						<div class="form-group">
 							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
 							<div class="cols-sm-10">
@@ -72,7 +70,6 @@
 								<span id="confirmPass"></span>
 							</div>
 						</div>
-
 						<div class="form-group ">
 							<button type="button" class="btn btn-primary btn-lg btn-block login-button">UPDATE</button>
 						</div>

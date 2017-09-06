@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-   
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
    @RequestMapping("/")
@@ -23,7 +22,7 @@ public class HomeController {
       
       model.addAttribute("serverTime", new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date()));
       
-      return "home";
+      return "public:common/home.tiles";
    }
    
 }

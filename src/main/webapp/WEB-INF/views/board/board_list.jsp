@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:include page="../common/common_head.jsp"></jsp:include>
 <link rel="stylesheet" href="${css}board.css" />
 	<div id="container">
 	<table class="board-list-tab" border = 1>
@@ -55,4 +54,3 @@
 	</table>
 	<button onclick="window.location.href='../index.jsp'" style="width: 100px; margin-left: 47%;">메인으로 가기</button>
 </div>
-<jsp:include page="../common/footer.jsp"></jsp:include>
