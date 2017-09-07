@@ -1,4 +1,4 @@
-package com.gms.web.member;
+package com.gms.web.mapper;
 
 import java.util.List;
 import java.util.Map;
@@ -10,7 +10,7 @@ import com.gms.web.member.MemberDTO;
 import com.gms.web.member.StudentDTO;
 
 @Repository
-public interface MemberDAO {
+public interface MemberMapper {
 	public String insert(Map<?,?>map);
 	public List<?> selectAll(CommandDTO cmd);
 	public String count(CommandDTO cmd);
