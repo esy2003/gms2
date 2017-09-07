@@ -17,10 +17,10 @@ public class AuthController {
    }
    @RequestMapping("/login")
    public String login() {
-      return "public:common/main.tiles";
+      return "auth:common/main.tiles";
    }
    @RequestMapping("/main")
    public String home() {
-      return "public:common/main.tiles";
+      return "auth:common/main.tiles";
    }
 }

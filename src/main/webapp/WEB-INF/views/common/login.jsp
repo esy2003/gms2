@@ -4,7 +4,7 @@
 <body>
    <div id="gms-container">
       <form id="login-box">
-         <img class="gms-imgsize" src="<%=application.getContextPath() %>/resources/img/nara.jpg" alt="" /><br />
+         <img class="gms-imgsize" src="${sessionScope.path.img}/nara.jpg" alt="" /><br />
          <span class="gms-idtex">ID</span>
          <input type="text" id="input_id" name="input_id" /><br />
          <span class="gms-tex-sty" >PASSWORD</span>

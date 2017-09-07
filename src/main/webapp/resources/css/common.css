@@ -74,11 +74,16 @@ a:active {
 }
 
 #footer-main {
+	position: absolute;
 	width: 100%;
 	height: 100px;
 	padding: 5px;
+	bottom:0;
 }
 #footer-main div {
-	width: 80%;
-	margin: 0 auto;
+	margin : 0 auto;
+	height:100%;
+	width: 72%;
+	background-color: pink;
+	text-align: center;
 }
