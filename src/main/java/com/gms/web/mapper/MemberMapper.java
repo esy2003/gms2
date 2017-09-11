@@ -13,7 +13,7 @@ import com.gms.web.member.StudentDTO;
 public interface MemberMapper {
 	public String insert(Map<?,?>map);
 	public List<?> selectAll(CommandDTO cmd);
-	public String count(CommandDTO cmd);
+	public String count();
 	public StudentDTO selectById(CommandDTO cmd);
 	public List<?> selectByName(CommandDTO cmd);
 	public String update(MemberDTO member);

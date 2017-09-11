@@ -11,6 +11,9 @@
   </div><!-- /.col-lg-6 -->
 </div><!-- /.row -->
 <div style="height: 40px; width: 300px;"></div>
+	<div style="height: 40px; width: 300px;">
+		회원수 : ${count}
+	</div>
 		<!-- userId, userPw, name, ssn, regdate, email, major, subject -->
 		<table id="member-table-main">
 			<tr class="member-table-menu">

@@ -16,8 +16,9 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
-	
-	
+	<!-- 아래는 @Authwired 와 @Resources 를 사용하기 위해 추가해준 문장 -->
+	<context:annotation-config />
+	<!-- 아래는 @HandlerMapping 와 @HandlerAdapter 를 사용하기 위해 추가해준 문장-->
 	<mvc:annotation-driven />
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
@@ -43,8 +44,9 @@
 	</bean>
 	<!-- @Repository 스캔 -->
 	<mybatis-spring:scan base-package="com.gms.web.mapper" />
+	
 	<!-- @Component 스캔 -->
-	<context:component-scan base-package="com.gms.web" />
+	<context:component-scan base-package="com.gms.web"/>
 	<context:property-placeholder location="classpath:/config/database.properties"/>
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

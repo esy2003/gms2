@@ -13,7 +13,6 @@ public class BoardController {
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
    @RequestMapping("/add")
    public String boardAdd(Model model) {
-      logger.info("나온다 보드.나온다 보드.");
       return "auth:board/board_write.tiles";
    }
    @RequestMapping("/list")

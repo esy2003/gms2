@@ -13,7 +13,6 @@ public class GradeController {
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
    @RequestMapping("/add")
    public String gradeAdd(Model model) {
-      logger.info("나온다.");
       return "auth:grade/grade_add.tiles";
    }
    @RequestMapping("/list")
