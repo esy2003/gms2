@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import com.gms.web.command.CommandDTO;
 import com.gms.web.common.HomeController;
 import com.gms.web.mapper.MemberMapper;
-import com.gms.web.member.MajorDTO;
 import com.gms.web.member.MemberDTO;
 import com.gms.web.member.StudentDTO;
 import com.gms.web.member.MemberService;
@@ -23,7 +22,7 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired MemberMapper mapper;
 	@Autowired CommandDTO cmd;
 	@Autowired MemberDTO member;
-
+	@Autowired StudentDTO student;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 
@@ -35,9 +34,10 @@ public class MemberServiceImpl implements MemberService {
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<StudentDTO> getMembers(CommandDTO cmd) {
-		return null;
+		return (List<StudentDTO>) mapper.selectAll(cmd);
 	}
 
 	@Override
@@ -50,7 +50,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Override
 	public List<StudentDTO> findByName(CommandDTO cmd) {
-		return null;
+		@SuppressWarnings("unchecked")
+		List<StudentDTO> list = (List<StudentDTO>) mapper.selectByName(cmd);
+		return list;
 	}
 
 	@Override

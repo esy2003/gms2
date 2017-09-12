@@ -8,8 +8,7 @@ app.path=(function(){
    };
    var onCreate=function(){
       setContentView();
-      location.href=ctx()+"/auth/login_view";
-   };
+      location.href=ctx()+"/auth/login_view";   };
    var setContentView=function(){
    };
    var ctx=function(){
@@ -82,49 +81,49 @@ app.main=(function(){
    var onCreate=function(){
       setContentView();
       $('.list-group li').eq(0).on('click',function(){
-         app.controller.moveTo('member','add');
+         app.controller.moveTo('member','member_add');
       });
       $('.list-group li').eq(1).on('click',function(){
-         app.controller.moveTo('member','list');
+         app.member.list(1);
       });
       $('.list-group li').eq(2).on('click',function(){
-         app.controller.moveTo('member','detail');
+         app.controller.moveTo('member','member_detail');
       });
       $('.list-group li').eq(3).on('click',function(){
-         app.controller.moveTo('member','update');
+         app.controller.moveTo('member','member_update');
       });
       $('.list-group li').eq(4).on('click',function(target){
-         app.controller.moveTo('member','delete');
+         app.controller.moveTo('member','member_delete');
       });
       
       
       $('.list-group li').eq(5).on('click',function(target){
-         app.controller.moveTo('grade','add');
+         app.controller.moveTo('grade','grade_add');
       });
       $('.list-group li').eq(6).on('click',function(target){
-         app.controller.moveTo('grade','list');
+         app.controller.list('grade','grade_list');
       });
       $('.list-group li').eq(7).on('click',function(target){
-         app.controller.moveTo('grade','detail');
+         app.controller.moveTo('grade','grade_detail');
       });
       $('.list-group li').eq(8).on('click',function(target){
-         app.controller.moveTo('grade','update');
+         app.controller.moveTo('grade','grade_update');
       });
       $('.list-group li').eq(9).on('click',function(target){
-         app.controller.moveTo('grade','delete');
+         app.controller.moveTo('grade','grade_delete');
       });
       
       $('.list-group li').eq(10).on('click',function(target){
-         app.controller.moveTo('board','add');
+         app.controller.moveTo('board','board_write');
       });
       $('.list-group li').eq(11).on('click',function(target){
-         app.controller.moveTo('board','list');
+         app.controller.list('board','board_list');
       });
       $('.list-group li').eq(12).on('click',function(target){
-         app.controller.moveTo('board','update');
+         app.controller.moveTo('board','board_update');
       });
       $('.list-group li').eq(13).on('click',function(target){
-         app.controller.moveTo('board','delete');
+         app.controller.moveTo('board','board_delete');
       });
       
    };
@@ -157,10 +156,10 @@ app.navbar=(function(){
    var setContentView=function(){
       
       $('#main-go').on('click',function(){
-         app.controller.moveTo('auth','main');
+         app.controller.moveTo('common','main');
       });
       $('#logout').on('click',function(){
-         app.controller.moveTo('auth','login_view');
+    	  location.href=app.path.ctx()+"/auth/login_view";
       });
       
       var $u1=$("#navbar_drop_stu");
@@ -172,46 +171,44 @@ app.navbar=(function(){
       $u3.addClass("dropdown-menu");
 
       $('.dropdown-menu a').eq(0).on('click',function(){
-         app.controller.moveTo('member','add');
+         app.controller.moveTo('member','member_add');
       });
       $('.dropdown-menu a').eq(1).on('click',function(){
-         app.controller.moveTo('member','list');
+         app.member.list(1);
       });
       $('.dropdown-menu a').eq(2).on('click',function(){
-         app.controller.moveTo('member','detail');
+         app.controller.moveTo('member','member_detail');
       });
       $('.dropdown-menu a').eq(3).on('click',function(){
-         app.controller.moveTo('member','delete');
+         app.controller.moveTo('member','member_delete');
       });
       
       
       $('.dropdown-menu a').eq(4).on('click',function(){
-         app.controller.moveTo('grade','add');
+         app.controller.moveTo('grade','grade_add');
       });
       $('.dropdown-menu a').eq(5).on('click',function(){
-         app.controller.moveTo('grade','list');
+         app.controller.list('grade','grade_list');
       });
       $('.dropdown-menu a').eq(6).on('click',function(){
-         app.controller.moveTo('grade','detail');
+         app.controller.moveTo('grade','grade_detail');
       });
       $('.dropdown-menu a').eq(7).on('click',function(){
-         app.controller.moveTo('grade','delete');
+         app.controller.moveTo('grade','grade_delete');
       });
       
       $('.dropdown-menu a').eq(8).on('click',function(){
-         app.controller.moveTo('board','add');
+         app.controller.moveTo('board','board_write');
       });
       $('.dropdown-menu a').eq(9).on('click',function(){
-         app.controller.moveTo('board','list');
+         app.controller.list('board','board_list');
       });
       $('.dropdown-menu a').eq(10).on('click',function(){
-         app.controller.moveTo('board','detail');
+         app.controller.moveTo('board','board_detail');
       });
       $('.dropdown-menu a').eq(11).on('click',function(){
-         app.controller.moveTo('board','delete');
+         app.controller.moveTo('board','board_delete');
       });
-      
-      
    };
    
    return {
@@ -221,6 +218,9 @@ app.navbar=(function(){
 })();
 
 app.member=(function(){
+   var list= function(pageNumber){
+	      location.href=app.path.ctx()+"/member/member_list/" + pageNumber;
+   }
    var init=function(){
       onCreate();
    };
@@ -238,13 +238,11 @@ app.member=(function(){
      });
    };
       var setContentView=function(){
-      
    };
    
    return{
       init : init,
-   
-      
+      list : list
    };
 })();
 app.grade =(function(){
@@ -282,34 +280,34 @@ app.controller=(function(){
    };
    var moveTo=function(dir,page){
    location.href=
-      app.path.ctx()+'/'+dir+'/'+page;
+      app.path.ctx()+'/common/path/'+dir+'/'+page;
    };
    var deleteTarget= function(target){
        prompt(target+'의 ID?');
-    }
+   }
    var list= function (dir,page,pageNumber){
-      location.href=app.ctx()+"/"+dir+".do?action=list&page="+page+"&pageNumber="+pageNumber;
+	      location.href=app.path.ctx()+"/"+dir+"/"+page;
    }
    var logout=function (dir,page){   
       location.href=app.ctx()+"/"+dir+".do?action=move&page="+page;
       return true;
-      }   
+   }   
    var updateStudent=function (id,email,phone){
         alert('수정할 id'+$("#detail_id").text());
         location.href=app.ctx()+"/member.do?action=update&page=member_update&id="+id+"&email="+email+"&phone="+phone;
-     }
-     var deleteStudent=function (id){
-        alert('삭제할id'+id);
-        location.href=app.ctx()+"/member.do?action=delete&page=member_list&id="+id;
-     }
+   }
+   var deleteStudent=function (id){
+	   alert('삭제할id'+id);
+	   location.href=app.ctx()+"/member.do?action=delete&page=member_list&id="+id;
+   }
    var detailStudent=function (id){
-        alert('조회할 id'+id);
-        location.href=app.ctx()+"/member.do?action=detail&page=member_detail&id="+id;
-     }
-     var searchStudent=function (){
-        var search=$('#searchName').value;
-        alert(search);
-        location.href=app.ctx()+"/member.do?action=search&page=member_list&search="+search;   
+       alert('조회할 id'+id);
+       location.href=app.path.ctx()+"/member.do?action=detail&page=member_detail&id="+id;
+   }
+   var searchStudent=function (){
+	   alert('검색버튼 클릭');
+       var search=$('#searchName').val();
+       location.href=app.path.ctx()+"/member/member_search/"+search + "/1";   
      } 
    return {
       init : init,

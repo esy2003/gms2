@@ -19,6 +19,7 @@
 	<!-- 아래는 @Authwired 와 @Resources 를 사용하기 위해 추가해준 문장 -->
 	<context:annotation-config />
 	<!-- 아래는 @HandlerMapping 와 @HandlerAdapter 를 사용하기 위해 추가해준 문장-->
+	<!-- MVC 정의 -->
 	<mvc:annotation-driven />
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />

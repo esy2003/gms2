@@ -2,7 +2,9 @@
 <div class="container">
       <div class="jumbotron text-center">
 			<h1>Grade Management System</h1>
+			
 		</div>
+		
    <div class="row">
       <div class="col-sm-4">
       <h3>학생관리</h3>

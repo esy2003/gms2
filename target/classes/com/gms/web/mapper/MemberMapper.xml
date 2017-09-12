@@ -13,6 +13,16 @@
 	public MemberDTO login(MemberDTO member);
    -->
 <mapper namespace="com.gms.web.mapper.MemberMapper">
+
+	<select id="selectAll"
+	resultType="com.gms.web.member.StudentDTO" 
+	parameterType="com.gms.web.command.CommandDTO">
+			select c.userId, c.name, c.ssn, c.phone, c.subjects, c.email, c.regdate, c.num from
+			         (select @Rnum := @Rnum + 1 num, t.*
+			         from student t,(select @rnum := 0) b) c
+			         where num between #{startRow} and #{endRow};
+	</select>
+
 	<select id="count" resultType="string">
 		select count(*) count from member;
 	</select>
@@ -20,6 +30,15 @@
 	<select id="login" 
 	resultType="com.gms.web.member.MemberDTO" 
 	parameterType="com.gms.web.command.CommandDTO">
-		select * from member where userId like #{search};
+		select userId, userPw from member where userId like #{search};
+	</select>
+		
+	<select id="selectByName" 
+	resultType="com.gms.web.member.StudentDTO" 
+	parameterType="com.gms.web.command.CommandDTO">
+		select c.userId, c.name, c.ssn, c.phone, c.subjects, c.email, c.regdate, c.num from
+			         (select @Rnum := @Rnum + 1 num, t.*
+			         from student t,(select @rnum := 0) b) c
+			         where name like '%${search}%';
 	</select>
 </mapper>

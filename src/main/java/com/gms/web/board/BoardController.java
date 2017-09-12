@@ -11,24 +11,4 @@ import com.gms.web.common.HomeController;
 @RequestMapping("/board")
 public class BoardController {
    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-   @RequestMapping("/add")
-   public String boardAdd(Model model) {
-      return "auth:board/board_write.tiles";
-   }
-   @RequestMapping("/list")
-   public String boardList(Model model) {
-      return "auth:board/board_list.tiles";
-   }
-   @RequestMapping("/detail")
-   public String boardDetail(Model model) {
-      return "auth:board/board_detail.tiles";
-   }
-   @RequestMapping("/update")
-   public String boardUpdate(Model model) {
-      return "auth:board/board_update.tiles";
-   }
-   @RequestMapping("/delete")
-   public String boardDelete(Model model) {
-      return "auth:board/board_delete.tiles";
-   }
 }
