@@ -3,6 +3,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import com.gms.web.constants.*;
+import com.gms.web.member.MemberDTO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +15,8 @@ public class CommandDTO implements Commandable {
 	
 	@Getter @Setter
 	protected String startRow, endRow, dir, page;
+	
+	protected MemberDTO member;
 
 	public void setSearch(String search) {
 		this.search = 

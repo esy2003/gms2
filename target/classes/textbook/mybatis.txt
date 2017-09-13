@@ -1,0 +1,54 @@
+동적 SQL 처리 방법
+
+OGNL 기반의 표현식
+
+1. if
+2. choose (when, otherwise)
+3. trim (where, set)
+4. foreach
+
+
+1. if
+
+<select id="find" resultType="com.gms.web.member.StudentDTO"
+parameterType="com.gms.web.command.CommandDTO">
+
+  SELECT * FROM BLOG 
+  WHERE state = ‘ACTIVE’ 
+  <if test="title != null">
+    AND title like '%${name}%'
+  </if>
+   <if test="author != null and author.name != null">
+    AND author_name like #{author.name}
+  </if>
+</select>
+
+2. choose
+
+<select id="find" 
+     resultType="Blog">
+  SELECT * FROM BLOG WHERE state = ‘ACTIVE’
+  <choose>
+    <when test="title != null">
+      AND title like #{title}
+    </when>
+    <when test="author != null and author.name != null">
+      AND author_name like #{author.name}
+    </when>
+    <otherwise>
+      AND featured = 1
+    </otherwise>
+  </choose>
+</select>
+
+3. foreach
+
+<select id="selectPostIn" resultType="domain.blog.Post">
+  SELECT *
+  FROM POST P
+  WHERE ID in
+  <foreach item="item" index="index" collection="list"
+      open="(" separator="," close=")">
+        #{item}
+  </foreach>
+</select>

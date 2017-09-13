@@ -44,7 +44,7 @@
       </li>
     </ul>
     	<div class="user-box-container">
-	    	<span class="user-box">${sessionScope.user.name} &nbsp; <a id="logout">로그아웃</a></span>
+	    	<span class="user-box">${user.name } &nbsp; <a id="logout">로그아웃</a></span>
 	    </div>
   </div>
 </nav>

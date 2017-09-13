@@ -11,12 +11,12 @@ import com.gms.web.member.StudentDTO;
 
 @Repository
 public interface MemberMapper {
-	public String insert(Map<?,?>map);
+	public int insert(MemberDTO member);
 	public List<?> selectAll(CommandDTO cmd);
 	public String count();
 	public StudentDTO selectById(CommandDTO cmd);
 	public List<?> selectByName(CommandDTO cmd);
-	public String update(MemberDTO member);
-	public String delete(CommandDTO cmd);
+	public int update(MemberDTO member);
+	public int delete(CommandDTO cmd);
 	public MemberDTO login(CommandDTO cmd);
 }

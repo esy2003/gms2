@@ -27,11 +27,8 @@ public class MemberServiceImpl implements MemberService {
 	
 
 	@Override
-	public String addMember(Map<String, Object> map) {
-		
-		String result = "";
-		
-		return result;
+	public int addMember(MemberDTO member) {
+		return mapper.insert(member);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -57,17 +54,16 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public StudentDTO findById(CommandDTO cmd) {
-		
-		return null;
+		return mapper.selectById(cmd);
 	}
 	
 	@Override
-	public String modify(MemberDTO bean) {
-		return null;
+	public int modify(MemberDTO member) {
+		return mapper.update(member);
 	}
 	@Override
-	public String remove(CommandDTO cmd) {
-		return null;
+	public int remove(CommandDTO cmd) {
+		return mapper.delete(cmd);
 	}
     @Override
     public Map<String, Object> login(CommandDTO cmd) {

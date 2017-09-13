@@ -10,20 +10,20 @@
                 </div>
                 <div class="col-md-9 col-xs-12 col-sm-6 col-lg-9">
                     <div class="" style="border-bottom:1px solid black">
-                      <span style="font-size: 50px;">${requestScope.student.name }</span>
-                      &nbsp;&nbsp;&nbsp;&nbsp;<button id="updateBtn" onclick="moveToPage('member', 'member_update')">정보수정</button>
+                      <span style="font-size: 50px;">${student.name }</span>
+                      &nbsp;&nbsp;&nbsp;&nbsp;<button id="updateBtn" onclick="app.controller.moveTo('member', 'member_update')">정보수정</button>
                     </div>
                       <hr>
                     <div class="col-md-8">  
                     <ul class=" details">
-                      <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>${requestScope.student.phone }</p></li>
-                      <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>${requestScope.student.email }</p></li>
+                      <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>${student.phone }</p></li>
+                      <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>${student.email }</p></li>
                       <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>Hyderabad</p></li>
-                      <li><p><span class="glyphicon glyphicon-credit-card one" style="width:50px;"></span>${requestScope.student.title }</p></li>
+                      <li><p><span class="glyphicon glyphicon-credit-card one" style="width:50px;"></span>${student.subjects }</p></li>
                     </ul>
                     </div>
                     <div class="col-md-4">  
-                      <div class="col-sm-5 col-xs-6 tital " >Birthday:</div><div class="col-sm-7 col-xs-6 ">${requestScope.student.ssn }</div>
+                      <div class="col-sm-5 col-xs-6 tital " >Birthday:</div><div class="col-sm-7 col-xs-6 ">${student.ssn }</div>
                       <div class="clearfix"></div><div class="bot-border"></div>
                       <div class="col-sm-5 col-xs-6 tital " >Gender:</div><div class="col-sm-7 col-xs-6 ">Prasad</div>
                       <div class="clearfix"></div><div class="bot-border"></div>

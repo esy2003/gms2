@@ -33,7 +33,7 @@
 			<tr class="member-table-menu">
 				<td><fmt:formatNumber value="${i.num }" pattern="."/></td>
 				<td>${i.userId }</td>
-				<td><a onclick="detailStudent('${i.userId}')">${i.name }</a></td>
+				<td><a onclick="app.controller.detailStudent('${i.userId}')">${i.name }</a></td>
 				<td>${i.ssn }</td>
 				<td>${i.phone }</td>
 				<td>${i.subjects }</td>
@@ -42,7 +42,7 @@
 				<td>
 				<a onclick="updateStudent('${i.userId}')">수정</a>
 				/
-				<a onclick="deleteStudent('${i.userId}')">삭제</a>
+				<a onclick="app.controller.deleteStudent('${i.userId}')">삭제</a>
 				</td>
 			</tr>
 			</c:forEach>

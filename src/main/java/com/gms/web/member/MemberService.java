@@ -10,12 +10,12 @@ import com.gms.web.member.MemberDTO;
 import com.gms.web.member.StudentDTO;
 @Component
 public interface MemberService {
-	public String addMember(Map<String, Object> map);
+	public int addMember(MemberDTO member);
 	public List<StudentDTO> getMembers(CommandDTO cmd);
 	public String countMembers();
 	public StudentDTO findById(CommandDTO cmd);
 	public List<StudentDTO> findByName(CommandDTO cmd);
-	public String remove(CommandDTO cmd);
-	public String modify(MemberDTO member);
+	public int remove(CommandDTO cmd);
+	public int modify(MemberDTO member);
 	public Map<String, Object> login(CommandDTO cmd);
 }
