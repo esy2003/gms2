@@ -9,9 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gms.web.command.CommandDTO;
 import com.gms.web.common.HomeController;
+import com.gms.web.mapper.GradeMapper;
 import com.gms.web.mapper.MemberMapper;
 import com.gms.web.member.MemberDTO;
 import com.gms.web.member.StudentDTO;
@@ -23,12 +25,20 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired CommandDTO cmd;
 	@Autowired MemberDTO member;
 	@Autowired StudentDTO student;
+	@Autowired MajorDTO major;
+	@Autowired GradeMapper gMapper;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-
+	@SuppressWarnings("unchecked")
 	@Override
-	public int addMember(MemberDTO member) {
-		return mapper.insert(member);
+	@Transactional
+	public int addMember(Map<?,?> map) {
+		int rs = 0;
+		member = (MemberDTO) map.get("member");
+		mapper.insert(member);
+		List<MajorDTO> list = (List<MajorDTO>) map.get("list");
+		gMapper.insertMajor(list);
+		return rs;
 	}
 
 	@SuppressWarnings("unchecked")

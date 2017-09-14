@@ -10,7 +10,7 @@ import com.gms.web.member.MemberDTO;
 import com.gms.web.member.StudentDTO;
 @Component
 public interface MemberService {
-	public int addMember(MemberDTO member);
+	public int addMember(Map<?,?> map);
 	public List<StudentDTO> getMembers(CommandDTO cmd);
 	public String countMembers();
 	public StudentDTO findById(CommandDTO cmd);

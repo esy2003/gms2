@@ -13,6 +13,28 @@
 	public MemberDTO login(MemberDTO member);
    -->
 <mapper namespace="com.gms.web.mapper.MemberMapper">
+	<insert id="insert" parameterType="com.gms.web.member.MemberDTO">
+	insert into member(
+		userId,
+		name,
+		userPw, 
+		ssn, 
+		regdate, 
+		phone, 
+		email, 
+		profile
+	)
+	values (
+		#{userId}, 
+		#{name}, 
+		#{userPw}, 
+		#{ssn}, 
+		now(), 
+		#{phone}, 
+		#{email}, 
+		'${userId}.jpg'
+	)
+	</insert>
 
 	<select id="selectAll"
 	resultType="com.gms.web.member.StudentDTO" 
@@ -51,7 +73,4 @@
 	<update id="update" parameterType="com.gms.web.member.MemberDTO">
 	UPDATE Member SET email = #{email} ,phone = #{phone} WHERE userId = #{userId};
 	</update> 
-	<insert id="insert" parameterType="com.gms.web.member.MemberDTO">
-	insert into member values(#{userId}, #{name}, #{userPw}, #{ssn}, now(), #{phone}, #{email}, '${userId}.jpg')
-	</insert>
 </mapper>

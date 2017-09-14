@@ -19,9 +19,13 @@
 	<!-- 아래는 @Authwired 와 @Resources 를 사용하기 위해 추가해준 문장 -->
 	<context:annotation-config />
 	<!-- 아래는 @HandlerMapping 와 @HandlerAdapter 를 사용하기 위해 추가해준 문장-->
+	<!-- @RequestMapping, @PathVariable 등 -->
 	<!-- MVC 정의 -->
 	<mvc:annotation-driven />
-
+	
+	<!-- @Transactional 어노테이션 사용 설정 -->
+	<tx:annotation-driven/>
+	
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="viewResolvers">
@@ -63,7 +67,17 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>
-	<bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<!-- 트랜잭션 설정 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
+	<!-- <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="viewResolvers">
+			<list>
+				<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+					<property name="viewClass" value="org.sp"></property>
+				</bean>
+			</list>
+		</property>
+	</bean> -->
 </beans>

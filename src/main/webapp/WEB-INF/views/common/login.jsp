@@ -4,7 +4,7 @@
 <body>
    <div id="gms-container">
       <form id="login-box">
-         <img class="gms-imgsize" src="${sessionScope.path.img}/nara.jpg" alt="" /><br />
+         <img class="gms-imgsize" src="${path.img}/nara.jpg" alt="" /><br />
          <div id="login-fail" style="margin: 0 auto; width:150px; height: 20px; color: red;">${result}</div>
          <span class="gms-idtex">ID</span>
          <input type="text" id="input_id" name="id" /><br />

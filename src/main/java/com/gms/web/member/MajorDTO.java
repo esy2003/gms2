@@ -7,5 +7,5 @@ import lombok.Data;
 
 @Lazy @Component @Data
 public class MajorDTO {
-	private String majorId, title, userId, subjId;
+	private String majorId, title, userId, subjects;
 }

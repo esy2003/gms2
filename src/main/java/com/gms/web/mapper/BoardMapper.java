@@ -8,7 +8,7 @@ import com.gms.web.board.BoardDTO;
 @Repository
 public interface BoardMapper {
 	public String count();
-    public String insert(BoardDTO bean);
+    public String insert(BoardDTO board);
     public List<BoardDTO> list();
     public List<BoardDTO> findById(String id);
     public BoardDTO findbySeq(String seq);

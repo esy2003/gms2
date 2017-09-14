@@ -223,8 +223,10 @@ app.member=(function(){
    }
    var init=function(){
       onCreate();
+      memberJoin();
    };
    var onCreate=function(){
+	   
       $("#updateBtn").on('click',function(){
       
       setContentView();
@@ -237,7 +239,15 @@ app.member=(function(){
       controller.moveTo('member','member_update');
      });
    };
-      var setContentView=function(){
+   var memberJoin = function() {
+	   $('#joinBtn').on('click', function() {
+		   alert('인서르트~');
+		   $('#gms-join-form').attr('method', 'post');
+		   $('#gms-join-form').attr('action', app.path.ctx() + '/member/member_add');
+	   });
+   };
+   var setContentView=function(){
+    	  
    };
    
    return{
@@ -287,15 +297,8 @@ app.controller=(function(){
    }
    var list= function (dir,page,pageNumber){
 	      location.href=app.path.ctx()+"/"+dir+"/"+page;
-   }
+   };
    
-   var memberJoin = function() {
-	   $('#joinBtn').on('click', function() {
-		   alert('인서르트~');
-		   $('#gms-join-form').attr('method', 'post');
-		   $('#gms-join-form').attr('action', app.path.ctx() + '/member/member_add');
-	   });
-   }
 
    var updateStudent=function() {
 	   $('#confirmBtn').on('click', function() {
@@ -314,9 +317,14 @@ app.controller=(function(){
        location.href=app.path.ctx()+"/member/member_detail/"+id;
    }
    var searchStudent=function (){
-	   alert('검색버튼 클릭');
-       var search=$('#searchName').val();
-       location.href=app.path.ctx()+"/member/member_search/"+search + "/1";   
+	   if ($('#searchName').val()==="") {
+		   alert('검색어를 입력해주세요');
+		   return false;
+	   }
+	   else {
+		   var search=$('#searchName').val();
+		   location.href=app.path.ctx()+"/member/member_search/"+search + "/1";  		   
+	   }
      } 
    return {
       init : init,
@@ -326,8 +334,7 @@ app.controller=(function(){
       updateStudent : updateStudent,
       deleteStudent : deleteStudent,
       detailStudent : detailStudent,
-      searchStudent : searchStudent,
-      memberJoin : memberJoin
+      searchStudent : searchStudent
    }
 })();
 

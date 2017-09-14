@@ -1,6 +1,9 @@
 package com.gms.web.member;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.gms.web.command.CommandDTO;
@@ -29,9 +33,27 @@ public class MemberController {
 	@Autowired StudentDTO stu;
 	@Autowired MemberDTO member;
 	@RequestMapping(value="/member_add",method=RequestMethod.POST)
-	public String memberAdd(@ModelAttribute MemberDTO member) {
+	public String memberAdd(@ModelAttribute MemberDTO member, @RequestParam("subjects") List<String> list) {
 		logger.info("멤버애드진입");
-		service.addMember(member);
+		logger.info("등록 아이디 {}",member.getUserId());
+		logger.info("등록 이름 {}",member.getName());
+		logger.info("등록 비번 {}",member.getUserPw());
+		logger.info("등록 리스트 {}",list);
+		List<MajorDTO> paramList = new ArrayList<>();
+		Map<String, Object> paramMap = new HashMap<>();		
+		MajorDTO major = null;
+		for(String m:list) {
+			major = new MajorDTO();
+			major.setTitle(m);
+			major.setUserId(member.getUserId());
+			major.setSubjects(m);
+			paramList.add(major);
+			logger.info("등록 리스트 포문 안 {}", m);
+		}
+		
+		paramMap.put("member", member);
+		paramMap.put("list", paramList);
+		service.addMember(paramMap);
 		return "redirect:/member/member_list/1";
 	}
 

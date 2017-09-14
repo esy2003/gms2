@@ -23,7 +23,7 @@
 	<br />
 	이메일<br><input type="email" name="email" value="dltk@test.com" />
 	<h3>전공</h3><br />
-	<select name="major" id="">
+	<select name="major_id" id="">
 		<option value="computer">컴퓨터공학</option>
 		<option value="economics">경제학</option>
 		<option value="tourism">관광학</option>
@@ -45,5 +45,5 @@
 </body>
 </html>
 <script>
-app.controller.memberJoin();
+app.member.init();
 </script>
