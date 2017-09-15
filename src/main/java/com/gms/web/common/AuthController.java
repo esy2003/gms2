@@ -30,7 +30,7 @@ public class AuthController {
    
    @RequestMapping("/login_view")
    public String goLogin(Model model) {
-      return "public:common/login.tiles";
+       return "public:common/login.tiles";
    }
    
    @RequestMapping(value="/login",method=RequestMethod.POST)
