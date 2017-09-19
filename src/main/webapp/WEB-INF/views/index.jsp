@@ -11,7 +11,9 @@
    <title>Document</title>
 </head>
 <body>
-<div id="wrapper"></div>
+<div id="wrapper">
+	<div id="navbar"></div>
+</div>
 <script>
 meta.common.init('${path.ctx }');
 </script>
