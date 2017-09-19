@@ -13,6 +13,7 @@
 <body>
 <div id="wrapper">
 	<div id="navbar"></div>
+	<div id="container"></div>
 </div>
 <script>
 meta.common.init('${path.ctx }');
