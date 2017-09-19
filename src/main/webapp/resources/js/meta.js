@@ -1,15 +1,15 @@
 var meta=meta || {};
 
-meta.common=(function() {
-	var init = function(ctx) {
+meta.common=(()=> {
+	var init = (ctx)=> {
 		onCreate();
 		meta.session.init(ctx);
 		meta.index.init();
 	};
-	var onCreate=function() {
+	var onCreate=()=> {
 		setContentView();
 	};
-	var setContentView=function() {
+	var setContentView=()=> {
 		
 	};
 	return {
@@ -17,20 +17,20 @@ meta.common=(function() {
 	};
 })();
 
-meta.auth=(function() {
+meta.auth=(()=> {
 	var $wrapper,ctx,img,js,css;
-	var init=function() {
+	var init=()=> {
 		onCreate();
 	};
-	var onCreate=function() {
+	var onCreate=()=> {
 		setContentView();
 	};
-	var setContentView=function() {
+	var setContentView=()=> {
 		$wrapper=$('#wrapper');
 		img = $$('i');
 		loginView();
 	};
-	var loginView=function() {
+	var loginView=()=> {
 		var $ui = 
 			    '<div id="gms-container">'
 		      + '<div id="login_box">'
@@ -61,13 +61,13 @@ meta.auth=(function() {
 	};
 })();
 
-meta.ui=(function() {
+meta.ui=(()=> {
 	var $wrapper,ctx,img,js,css;
-	var init = function() {
+	var init = ()=> {
 		$wrapper=$('#wrapper');
 		img=$$('i');
 	};
-	var navbar = function() {
+	var navbar = ()=> {
 		$wrapper.html(
 				'<nav class="navbar navbar-inverse">'
 				+'  <div class="container-fluid">'
@@ -131,7 +131,7 @@ meta.ui=(function() {
 		+'		  </div>'
 		+'		</nav>'
 	);};
-	var arithmetic=function() {
+	var arithmetic=()=> {
 		var content= '<div id="content">' 
 			+'<h1>등차수열의 합</h1>'
 			+ '<span id="start_text">시작값:&nbsp;&nbsp;</span>'
@@ -141,56 +141,35 @@ meta.ui=(function() {
 		$('#start_text').after(meta.comp.input({
 			id:'start_txt',
 			type:'text',
-			placeholder:'시작값'
+			placeholder:'시작값',
+			value: '1'
 		}))
 		$('#end_text').after(meta.comp.input({
 			id:'end_txt',
 			type:'text',
-			placeholder:'끝값'
+			placeholder:'끝값',
+			value:'100'
 		}))
 		$('#end_txt').after(meta.comp.input({
 			type:'button',
-			id:'operate_btn1',
-			value:'계산하기'
-		}));
-	};
-	var switchSeries = function() {
-		var content= '<div id="content">' 
-			+'<h1>스위치시리즈</h1>'
-			+ '<span id="start_text">시작값:&nbsp;&nbsp;</span>'
-			+ '<br/><span id="end_text">끝    값:</span>'
-			+ '<div id="result"></div></div>';
-		$wrapper.after(content);
-		$('#start_text').after(meta.comp.input({
-			id:'start_txt',
-			type:'text',
-			placeholder:'시작값'
-		}));
-		$('#end_text').after(meta.comp.input({
-			id:'end_txt',
-			type:'text',
-			placeholder:'끝값'
-		}));
-		$('#end_txt').after(meta.comp.input({
-			type:'button',
-			id:'operate_btn2',
+			id:'operate_btn',
 			value:'계산하기'
 		}));
 	};
 	
 	return {
-		init:init, arithmetic:arithmetic, navbar : navbar, switchSeries : switchSeries
+		init:init, arithmetic:arithmetic, navbar : navbar
 	};
 })();
 
 meta.comp={
-		input : function(json) {
+		input : (json)=> {
 			return $('<input/>',json);
 		}
 	};
 
 meta.session={
-	init : function(x) {
+	init : (x)=> {
 		sessionStorage.setItem('x', x);
 		sessionStorage.setItem('j', x+'/resources/js');
 		sessionStorage.setItem('i', x+'/resources/img');
@@ -201,77 +180,92 @@ meta.session={
 		}
 	};
 
-var $$ = function(x) {return meta.session.getPath(x);};
+var $$ = (x)=> {return meta.session.getPath(x);};
 
-meta.index=(function() {
-	var init=function() {
+meta.index=(()=> {
+	var init=()=> {
 		onCreate();
 		meta.ui.init();
 	};
-	var onCreate=function() {
+	var onCreate=()=> {
 		setContentView();
-		$('#loadingBtn').on('mouseover', function() {
+		$('#loadingBtn').on('mouseover', ()=> {
 			$wrapper.empty();
 			//meta.auth.init();
 			meta.ui.navbar();
 			meta.ui.arithmetic();
-			$('#operate_btn1').on('click', function() {
-				$('#result').text('결과 : ' + meta.algo.arithmetic(
+			$('h1').html('1부터 100 등차 수열');
+			$('#operate_btn').on('mouseover', ()=> {
+				$('#result').html('결과 : ' + meta.algo.arithmetic(
 						$('#start_txt').val(),
 						$('#end_txt').val()
 						));
 			});
-			$('#arithBtn').on('click', function() {
-				alert('등차수열 클릭');
+			$('#arithBtn').on('click', ()=> {
 				$('#content').empty();
 				meta.ui.arithmetic();
-				$('#operate_btn1').on('click', function() {
-					$('#result').text('결과 : ' + meta.algo.arithmetic(
-							$('#start_txt').val(),
-							$('#end_txt').val()
-							));
-				});
-				$('#operate_btn1').on('click', function() {
-					$('#result').text('결과 : ' + meta.algo.arithmetic(
-							$('#start_txt').val(),
-							$('#end_txt').val()
-							));
-			});
-			});
-			$('#switchBtn').on('click', function() {
-				alert('스위치 클릭');
-				$('#content').empty();
-				meta.ui.switchSeries();
-				$('#operate_btn2').on('click', function() {
-					$('#result').text('결과 : ' + meta.algo.switchSeries(
+				$('h1').html('1부터 100 등차수열');
+				$('#operate_btn').on('mouseover', ()=> {
+					$('#result').html('결과 : ' + meta.algo.arithmetic(
 							$('#start_txt').val(),
 							$('#end_txt').val()
 							));
 				});
 			});
-			$('#geoBtn').on('click', function() {
-				alert('등비수열 클릭');
+			$('#switchBtn').on('click', ()=> {
 				$('#content').empty();
+				meta.ui.arithmetic();
+				$('h1').html('1부터 100 스위치 수열');
+				$('#operate_btn').on('mouseover', ()=> {
+					$('#result').html('결과 : ' + meta.algo.switchSeries(
+							$('#start_txt').val(),
+							$('#end_txt').val()
+							));
+				});
 			});
-			$('#facBtn').on('click', function() {
+			$('#geoBtn').on('click', ()=> {
+				$('#content').empty();
+				meta.ui.arithmetic();
+				$('h1').html('1부터 100 GEO수열');
+				$('#operate_btn').on('mouseover', ()=> {
+					$('#result').html('결과 : ' + meta.algo.geoSeries(
+							$('#end_txt').val()
+							));
+				});
+			});
+			$('#facBtn').on('click', ()=> {
 				alert('팩토리얼 클릭');
 				$('#content').empty();
+				meta.ui.arithmetic();
+				$('h1').html('팩토리얼');
+				$('#operate_btn').on('mouseover', ()=> {
+					$('#result').html('결과 : ' + meta.algo.factorial(
+							$('#end_txt').val()
+							));
+				});
 			});
-			$('#fiboBtn').on('click', function() {
+			$('#fiboBtn').on('click', ()=> {
 				alert('피보나치 클릭');
 				$('#content').empty();
+				meta.ui.arithmetic();
+				$('h1').html('피보나치');
+				$('#operate_btn').on('mouseover', ()=> {
+					$('#result').html('결과 : ' + meta.algo.fibonacci(
+							$('#end_txt').val()
+							));
+				});
 			});
 			//meta.ui.switchSeries();
 		});
 	};
-	var setContentView=function() {
+	var setContentView=()=> {
 		$wrapper = $('#wrapper');
 		img = $$('i');
 		ctx = $$('x');
 		var $image = $('<img/>',
 				{
 					id : 'loading',
-					src : img + '/loading.gif'
+					src : img + '/nara.jpg'
 				});
 		$wrapper.append($image);
 		
@@ -288,32 +282,61 @@ meta.index=(function() {
 })();
 
 meta.algo={
-	arithmetic : function(s,e) {
+	arithmetic : ()=> {
 		/*1부터 100까지 등차수열의 합*/
 			var sum=0;
-			var start = s*1;
-			var end = e*1;
-			for(var i=start;i<=end;i++) {
+			for(var i=0;i<=100;i++) {
 				sum +=i;
 			}
 			return sum;
 	},
-	switchSeries : function(s,e) {
+	switchSeries : ()=> {
 		var sum=0;
 		var sw=0;
-		var start = s*1;
-		var end = e*1;
+		var i=0;
 		do {
-			start=start+1;
+			i=i+1;
 			if(sw==0) {
-				sum=sum+start;
+				sum=sum+i;
 				sw=1;
 			}
 			else {
-				sum=sum-start;
+				sum=sum-i;
 				sw=0;
 			}
-		}while(start<=end);
+		}while(i<100);
+		return sum;
+	},
+	geoSeries : x=> {
+		var i=1,j=0,k=0;
+		do{
+			i+=j;
+			k+=i;
+			j++;
+		}while(j<x);
+		return k;
+	},
+	factorial : x=> {
+		var i=1,j=1,k=0;
+		do{
+			j=j*i;
+			i++;
+			k=k+j;
+		}while(i<=x);
+		return k;
+	},
+	fibonacci : x=> {
+		var a=1,b=1,c=0;sum=0,cnt=2;
+		do{
+			c=a+b;
+			b++;
+			sum=b+c;
+			cnt++;
+			if (cnt<x) {
+				a=b;
+				b=c;
+			}
+		}while(cnt<x);
 		return sum;
 	}
 };
