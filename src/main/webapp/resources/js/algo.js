@@ -57,3 +57,51 @@ var series = {
 			return sum;
 		}
 };
+var sort = {
+		selection : x=> {
+
+			var i,j,temp;
+			for (i=0;i<x.length;i++) {
+				for (j=i;j<x.length;j++) {
+					if (x[i]*1 > x[j+1]*1){
+						temp=x[i];
+						x[i]=x[j+1];
+						x[j+1]=temp;
+					}
+				}
+			}
+
+			return x;
+		},
+		bubble : x=> {
+			console.log('start'+x);
+			var i,j,temp=0;
+			for (i=0;i<x.length;i++) {
+				for (j=0;j<x.length;j++) {
+					if (x[j]*1 > x[j+1]*1){		
+						temp=x[j];
+						x[j]=x[j+1];
+						x[j+1]=temp;
+					}
+				}
+			}
+			console.log('end'+x);
+			return x;
+		},
+		insertion : x=> {
+			var i,j,temp;
+			for (i=0;i<x.length;i++) {
+				for (j=0;j<x.length;j++) {
+					if (x[i]*1 < x[j]*1) {
+						temp = x[j];
+						x[j] = x[i];
+						x[i] = temp;
+					}
+				}
+			}
+			return x;
+		},
+		ranking : ()=> {
+			return 'ranking';
+		}
+};

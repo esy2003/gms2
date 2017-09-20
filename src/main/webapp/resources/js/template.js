@@ -21,7 +21,7 @@ var introUI={
 		+'      <li class="dropdown">'
 		+'          <a href="#" class="dropdown-toggle" '
 		+'          	aria-haspopup="true" '
-		+'          	aria-expanded="false">회원관리 <span class="caret">'
+		+'          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">회원관리 <span class="caret"></span></a>'
 		+'          	</span></a>'
 		+'          <ul id="navbar_ul_stu" class="dropdown-menu">'
 		+'            <li><a>학생추가</a></li>'
@@ -61,6 +61,35 @@ var introUI={
 		+'            <li><a id="fiboBtn">피보나치</a></li>'
 		+'          </ul>'
 		+'        </li>'
+		+'      <li class="dropdown">'
+		+'          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">배 열<span class="caret"></span></a>'
+		+'          <ul id="navbar_ul_board" class="dropdown-menu">'
+		+'           <li><a id="selBtn">선택정렬</a></li>'
+		+'            <li><a id="bubbleBtn">버블정렬</a></li>'
+		+'            <li><a id="insertBtn">삽입정렬</a></li>'
+		+'            <li><a id="lankBtn">석차구하기</a></li>'
+		+'            <li><a id="binsearchBtn">이분검색</a></li>'
+		+'            <li><a id="mergeBtn">병합</a></li>'
+		+'            <li><a id="stackBtn">스택</a></li>'
+		+'          </ul>'
+		+'        </li>'
+		+'      <li class="dropdown">'
+		+'          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">매트릭스<span class="caret"></span></a>'
+		+'          <ul id="navbar_ul_board" class="dropdown-menu">'
+		+'           <li><a id="matrixBtn">기본 5행 5열</a></li>'
+		+'            <li><a id="rightBtn">직각삼각형</a></li>'
+		+'            <li><a id="zigzagBtn">지그재그</a></li>'
+		+'            <li><a id="diamondBtn">다이아몬드</a></li>'
+		+'            <li><a id="sandglass">모래시계</a></li>'
+		+'            <li><a id="beanBtn">오른쪽 빈삼각형</a></li>'
+		+'            <li><a id="twoSameBtn">이등변삼각형</a></li>'
+		+'            <li><a id="90TurnBtn">90도 회전</a></li>'
+		+'            <li><a id="snailBtn">달팽이</a></li>'
+		+'            <li><a id="diagonalBtn">대각선채우기</a></li>'
+		+'            <li><a id="magicBtn">마방진</a></li>'
+		+'            <li><a id="matrixChangeBtn">행렬변환</a></li>'
+		+'          </ul>'
+		+'        </li>'
 		+'    </ul>'
 		+'    <span class="float-right">${user.name} &nbsp;'
 		+'    	<a id="logout" >로그아웃</a></span>'
@@ -82,6 +111,15 @@ var compUI={
 			id : x,
 			type : y
 		});
+	},
+	h1 : x => {
+		return $('<h1/>', {id : x});
+	},
+	span : x => {
+		return $('<span/>', {id : x});
+	},
+	div : x => {
+		return $('<div/>', {id : x});
 	}
 }
 var algoUI={
@@ -91,5 +129,11 @@ var algoUI={
 			+'<span id="start_txt">시작값: &nbsp;&nbsp;</span>'
 			+'<br/><span id="end_txt">끝   값:</span><br/>'
 			+'<div id="result"></div>';
-	}	
+	},
+	sort : () => {
+		return '<div id="content">'
+		+'<h1>선택정렬</h1>'
+		+'<span id="start_txt">배열값: &nbsp;&nbsp;</span>'
+		+'<div id="result"></div>';
+	}
 };
