@@ -13,7 +13,7 @@ meta.common=(()=>{
 })();
 
 meta.index=(()=>{
-	var $wrapper,$navbar,$container,ctx,img,js,css,
+	var $wrapper,$navbar,$container,ctx,img,js,css,$content,
 		temp,algo;
 	var init=()=>{
 			js=$$('j');
@@ -22,14 +22,15 @@ meta.index=(()=>{
 			img=$$('i');
 			$navbar=$('#navbar');
 			$container=$('#container');
+			ctx=$$('x');
 			onCreate();
 		};
 	var onCreate=()=>{
-		$.getScript(temp,(x,y)=>{
-			
+		$.getScript(temp,()=>{
 			$container.append(compUI.div('content')).css({'width':'100%'});
-			$('#content').css({'width':'31%','margin':'0 auto'});
-			$('#content').append(compUI.image('loading',img+'/nara.jpg'));
+			$content=$('#content');
+			$content.css({'width':'31%','margin':'0 auto'});
+			$content.append(compUI.image('loading',img+'/nara.jpg'));
 			$('#loading').css({'margin':'0 auto', 'height':'725px','width':'500px'});
 			$container.append(compUI.div('btn-content')).css({'width':'100%'});
 			$('#btn-content').css({'width':'50%','margin':'0 auto'});
@@ -40,8 +41,6 @@ meta.index=(()=>{
 			$('#btn').html('알고리즘').addClass('label label-primary');
 			$('#h-btn').append(compUI.span('btn2')).attr('display', 'inline');
 			$('#btn2').html('회원관리').addClass('label label-warning').css({'margin-left':'10px'});
-			$('#h-btn').append(compUI.span('btn3')).attr('display', 'inline');
-			$('#btn3').html('게시판').addClass('label label-success').css({'margin-left':'10px'});
 			$('#btn').mouseover(()=>{
 				$container.empty();
 				//meta.auth.init();	
@@ -59,6 +58,38 @@ meta.index=(()=>{
 								+series.arithmetic());
 					});
 				});
+			});
+			
+			compUI.span('bbsBtn')
+			.html('게시판관리')
+			.addClass('label label-danger')
+			.css({'margin-left':'10px'})
+			.appendTo($('#h-btn'))
+			.mouseover(()=>{
+				var url = ctx + '/get/board/list';
+				$.getJSON(url,x=>{
+					alert('x msg is ' + x.msg);
+				});
+				$container.empty();
+				$container.append(introUI.navbar());
+				compUI.div('content').appendTo($container);
+				$content= $('#content');
+				$('#board-list-h1').html('리스트').css({'text-align':'center'});
+				compUI.tag('table', 'board-tab').appendTo($content);
+				$('#board-tab').addClass('table');
+				compUI.tag('thead', 'board-thead').appendTo($('#board-tab'));
+				compUI.tag('tr','board-th-tr').appendTo($('#board-thead'));
+				compUI.tag('tbody', 'board-tbody').appendTo($('#board-tab'));
+				compUI.tag('tr', 'board-tb-tr').appendTo($('#board-tbody'));
+				compUI.noIdTag('th').text('No').appendTo($('#board-th-tr'));
+				compUI.noIdTag('th').text('제목').appendTo($('#board-th-tr'));
+				compUI.noIdTag('th').text('내용').appendTo($('#board-th-tr'));
+				compUI.noIdTag('th').text('등록일').appendTo($('#board-th-tr'));
+				compUI.noIdTag('th').text('글쓴이').appendTo($('#board-th-tr'));
+				compUI.noIdTag('th').text('조회수').appendTo($('#board-th-tr'));
+				for (var i=0;i<6;i++) {
+				compUI.noIdTag('td').css({'text-align':'left'}).text('내용이다').appendTo($('#board-tb-tr'));
+				}
 			});
 		});
 		};

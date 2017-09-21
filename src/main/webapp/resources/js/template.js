@@ -1,3 +1,66 @@
+var compUI={
+	image : (x,y)=>{
+			return $('<img/>',
+			{	
+				id : x,
+				src : y
+			}); 
+		},
+	input : (x,y)=>{
+		return $('<input/>',
+		{
+			id : x,
+			type : y
+		});
+	},
+	h1 : x => {
+		return $('<h1/>', 
+				{
+			id : x
+		});
+	},
+	span : x => {
+		return $('<span/>', 
+				{
+			id : x
+		});
+	},
+	div : x => {
+		return $('<div/>', 
+				{
+			id : x
+		});
+	},
+	iTxt : x => {
+		return $('<input/>', 
+				{
+			id : x, type : 'text'
+		});
+	},
+	aBtn : x => {
+		return $('<a>',
+				{
+			href : '#', role : 'button', id : x
+		});
+	},
+	iBtn : x => {
+		return $('<input/>', 
+				{
+			id : x, type : 'button'
+		});
+	},
+	br : ()=> {
+		return $('<br/>');
+	},
+	tag : (x,y) => {
+		return $('<'+x+'/>',{
+			id:y
+		});
+	},
+	noIdTag : (x) => {
+		return $('<'+x+'/>')
+	}
+}
 var introUI={
 	
 	login : i=>{ return '<div id="container">'
@@ -97,31 +160,7 @@ var introUI={
 		+'</nav>';
 	}
 };
-var compUI={
-	image : (x,y)=>{
-			return $('<img/>',
-			{	
-				id : x,
-				src : y
-			}); 
-		},
-	input : (x,y)=>{
-		return $('<input/>',
-		{
-			id : x,
-			type : y
-		});
-	},
-	h1 : x => {
-		return $('<h1/>', {id : x});
-	},
-	span : x => {
-		return $('<span/>', {id : x});
-	},
-	div : x => {
-		return $('<div/>', {id : x});
-	}
-}
+
 var algoUI={
 	series : ()=>{
 		return '<div id="content">'

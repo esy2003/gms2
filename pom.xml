@@ -239,7 +239,7 @@
 		    <version>1.8.9</version>
 		</dependency>
 		
-		<!-- JSON 설정 -->
+		<!-- JSON 설정(@RequestBody, @ResponseBody) -->
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>

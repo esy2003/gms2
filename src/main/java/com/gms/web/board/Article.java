@@ -4,8 +4,10 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
+
+
 @Lazy @Component @Data
-public class BoardDTO{
+public class Article{
 
 	private String userId, title, content, regdate;
 	private int articleSeq, hitCount;

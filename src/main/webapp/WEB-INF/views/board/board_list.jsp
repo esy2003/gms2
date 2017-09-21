@@ -19,38 +19,6 @@
 			<td>1</td>
 			<td>1</td>
 		</tr>
-		<tr class="margin-0">
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-			<td>2</td>
-		</tr>
-		<tr class="margin-0">
-			<td>3</td>
-			<td>3</td>
-			<td>3</td>
-			<td>3</td>
-			<td>3</td>
-			<td>3</td>
-		</tr>
-		<tr class="margin-0">
-			<td>4</td>
-			<td>4</td>
-			<td>4</td>
-			<td>4</td>
-			<td>4</td>
-			<td>4</td>
-		</tr>
-		<tr class="margin-0">
-			<td>5</td>
-			<td>5</td>
-			<td>5</td>
-			<td>5</td>
-			<td>5</td>
-			<td>5</td>
-		</tr>
 	</table>
 	<button onclick="window.location.href='../index.jsp'" style="width: 100px; margin-left: 47%;">메인으로 가기</button>
 </div>

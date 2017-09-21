@@ -3,8 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gms.web.mapper.BoardMapper">
-
-	<insert id="insert" parameterType="com.gms.web.board.BoardDTO">
+	<resultMap id="respMap" type="com.gms.web.command.RespMap">
+		
+	</resultMap>
+	<insert id="insert" parameterType="com.gms.web.command.Command">
 	insert into board(
 		article_seq,
 		userId,
@@ -23,7 +25,9 @@
 	)
 	</insert>
 
-  <select id="selectById" resultType="com.gms.web.board.BoardDTO">
+  <select id="selectSome"
+   resultType="com.gms.web.command.RespMap" 
+   parameterType="com.gms.web.command.Command">
     select * from Board where article_seq = #{articleSeq}
   </select>
 </mapper>

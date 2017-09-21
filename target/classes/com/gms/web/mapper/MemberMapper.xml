@@ -38,7 +38,7 @@
 
 	<select id="selectAll"
 	resultType="com.gms.web.member.StudentDTO" 
-	parameterType="com.gms.web.command.CommandDTO">
+	parameterType="com.gms.web.command.Command">
 			select c.userId, c.name, c.ssn, c.phone, c.subjects, c.email, c.regdate, c.num from
 			         (select @Rnum := @Rnum + 1 num, t.*
 			         from student t,(select @rnum := 0) b) c
@@ -51,22 +51,22 @@
 	
 	<select id="login" 
 	resultType="com.gms.web.member.MemberDTO" 
-	parameterType="com.gms.web.command.CommandDTO">
+	parameterType="com.gms.web.command.Command">
 		select userId, userPw, name from member where userId like #{search};
 	</select>
 		
 	<select id="selectByName" 
 	resultType="com.gms.web.member.StudentDTO" 
-	parameterType="com.gms.web.command.CommandDTO">
+	parameterType="com.gms.web.command.Command">
 		select c.userId, c.name, c.ssn, c.phone, c.subjects, c.email, c.regdate, c.num from
 			         (select @Rnum := @Rnum + 1 num, t.*
 			         from student t,(select @rnum := 0) b) c
 			         where name like '%${search}%';
 	</select>
-	<delete id="delete" parameterType="com.gms.web.command.CommandDTO">
+	<delete id="delete" parameterType="com.gms.web.command.Command">
 	delete from member where userId like #{search};
 	</delete>
-	<select id="selectById" parameterType="com.gms.web.command.CommandDTO"
+	<select id="selectById" parameterType="com.gms.web.command.Command"
 	resultType="com.gms.web.member.StudentDTO">
 	select userId, userPw, name, ssn, phone, email, subjects from student where userId like #{search};
 	</select>
