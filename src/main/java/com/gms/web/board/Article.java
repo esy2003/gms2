@@ -11,4 +11,9 @@ public class Article{
 
 	private String userId, title, content, regdate;
 	private int articleSeq, hitCount;
+	@Override
+	public String toString() {
+		return "Article [userId=" + userId + ", title=" + title + ", content=" + content + ", regdate=" + regdate
+				+ ", articleSeq=" + articleSeq + ", hitCount=" + hitCount + "]";
+	}
 }

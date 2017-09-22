@@ -34,11 +34,12 @@ public class BoardController {
 	   switch(cate) {
 	   case "board": 
 		   cmd=null;
-		   /*listService = (x)-> {
+		   listService = (x)-> {
 			   return boardMapper.selectSome(cmd);
-		   };*/
-		   //map.put("list", listService.execute(cmd));
-		   map.put("msg", "보오드");
+		   };
+		   System.out.println("리스트서빙ㅇ스슷슷ㅅ스"+listService);
+		   map.put("result", "success");
+		   map.put("list", listService.execute(cmd));
 		   break;
 		   
 	   case "grade":

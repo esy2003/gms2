@@ -176,3 +176,22 @@ var algoUI={
 		+'<div id="result"></div>';
 	}
 };
+var bbsUI={
+		tbl : ()=> {
+			var tbl='<table id=tbl border=1 style = "margin:0 auto; width: 1100px; text-align:center;"'
+				+ '<thead><tr style="30px;">';
+			var a = [{width:'5%',txt:'NO'},
+				{width:'15%',txt:'제 목'},
+				{width:'40%',txt:'내 용'},
+				{width:'12%',txt:'글쓴이'},
+				{width:'10%',txt:'작성일'},
+				{width:'10%',txt:'조회수'}];
+			$.each(a, (i,j)=> {
+				tbl+= '<th style="width:"' + j.width
+					+ '; text-align : center;">' + j.txt + '</th>'
+			});
+			tbl += '</tr></thead><tbody id="tbody">';
+			tbl += '</tbody></table></div>';
+			return tbl;
+		}
+}

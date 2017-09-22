@@ -67,10 +67,69 @@ meta.index=(()=>{
 			.appendTo($('#h-btn'))
 			.mouseover(()=>{
 				var url = ctx + '/get/board/list';
-				$.getJSON(url,x=>{
-					alert('x msg is ' + x.msg);
-				});
+				$.getJSON(url,data=>{
 				$container.empty();
+				$container.append(introUI.navbar());
+				compUI.div('content').appendTo($container);
+				$content= $('#content');
+				var tbl=bbsUI.tbl();
+				/*var a = [
+					{
+						a : 1,
+						b : '한국인사',
+						c : '안녕',
+						d : '길동',
+						e : '2017-09-10',
+						f : 10
+					},{
+						a : 2,
+						b : '미국인사',
+						c : 'hello',
+						d : 'json',
+						e : '2017-09-20',
+						f : 20
+					},{
+						a : 3,
+						b : '태국인사',
+						c : '사와디캅',
+						d : '푸팟퐁커리',
+						e : '2017-09-10',
+						f : 1
+					},{
+						a : 4,
+						b : '중국인사',
+						c : '니하오',
+						d : '쭝궈런',
+						e : '2017-09-10',
+						f : 101
+					},{
+						a : 5,
+						b : '일본인사',
+						c : '곤니찌와',
+						d : '나베',
+						e : '2017-09-10',
+						f : 106
+					}
+				]*/
+				var tr='';
+				alert('결과값은'+data.result);
+				$.each(data.list,function(i,j) {
+					tr+= '<tr style = "height:30px;">'
+						+'<td>'+j.articleSeq+'</td>'
+						+'<td>'+j.title+'</td>'
+						+'<td>'+j.content+'</td>'
+						+'<td>'+j.userId+'</td>'
+						+'<td>'+j.regdate+'</td>'
+						+'<td>'+j.hitCount+'</td>'
+						+'</tr>'
+				});
+				console.log('tr' + tr);
+				
+				$content.html(tbl);
+				$('#tbody').html(tr);
+				});
+				
+				/*$container.empty();
 				$container.append(introUI.navbar());
 				compUI.div('content').appendTo($container);
 				$content= $('#content');
@@ -89,7 +148,7 @@ meta.index=(()=>{
 				compUI.noIdTag('th').text('조회수').appendTo($('#board-th-tr'));
 				for (var i=0;i<6;i++) {
 				compUI.noIdTag('td').css({'text-align':'left'}).text('내용이다').appendTo($('#board-tb-tr'));
-				}
+				}*/
 			});
 		});
 		};
