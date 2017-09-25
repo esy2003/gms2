@@ -177,6 +177,49 @@ var algoUI={
 	}
 };
 var bbsUI={
+		count : ()=> {
+			return '<div id="total" style="height: 40px; width: 300px;"></div>'
+			+'<div style="height: 40px; width: 300px;">'
+			+'</div>';
+		},
+		writeBtn : ()=> {
+			return '<input id="writeBtn" type="button" value="글쓰기" class="btn btn-primary"></input>';
+		},
+		pagination : ()=> {
+			return '<nav aria-label="Page navigation" style="text-align: center;">'
+			+'  <ul class="pagination">'
+			+'  <li><a href="#"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></a></li>'
+			+'    <li>'
+			+'      <a href="#" aria-label="Previous">'
+			+'        <span aria-hidden="true">&laquo;</span>'
+			+'      </a>'
+			+'      </li>'
+			+'				<li class="active"><a href="#">1</a></li>'
+			+'				<li><a>2</a></li>'
+			+'				<li><a>3</a></li>'
+			+'				<li><a>4</a></li>'
+			+'				<li><a>5</a></li>'
+			+'    <li>'
+			+'      <a href="#" aria-label="Next">'
+			+'        <span aria-hidden="true">&raquo;</span>'
+			+'      </a>'
+			+'    </li>'
+			+'    <li><a href="#"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></a></li>'
+			+'  </ul>'
+			+'</nav>';
+		},
+		search : ()=> {
+			return '	<div class="row">'
+			+  '<div class="col-lg-6" style="width:500px; margin:0 auto;">'
+			+    '<div class="input-group">'
+			+      '<input id="searchName" name="searchName" type="text" class="form-control" placeholder="Search for...">'
+			+      '<span class="input-group-btn">'
+			+     '   <button class="btn btn-default" type="button" onclick="app.controller.searchStudent()">Go!</button>'
+			+     ' </span>'
+			+   ' </div><!-- /input-group -->'
+			+  '</div><!-- /.col-lg-6 -->'
+			+'</div><!-- /.row -->';
+		},
 		tbl : ()=> {
 			var tbl='<table id=tbl border=1 style = "margin:0 auto; width: 1100px; text-align:center;"'
 				+ '<thead><tr style="30px;">';
@@ -193,5 +236,54 @@ var bbsUI={
 			tbl += '</tr></thead><tbody id="tbody">';
 			tbl += '</tbody></table></div>';
 			return tbl;
+		},
+		detail : ()=> {
+			return '<div class="page-header" style="text-align: center;">'
+			+'	<h1 style="display:inline;">게시판</h1>'
+			+'		<a style="font-size: large;">목록보기</a>'
+			+'</div>'
+			+'<div class="container">'
+			+'	<div class="row">'
+			+'		<div class="col-md-12">'
+			+'			<div class="well well-sm">'
+			+'				<form class="form-horizontal" method="post">'
+			+'				<fieldset>'
+			+'				<legend id="text-header-board" class="text-center header">게시글쓰기</legend>'
+			+'				<div class="form-group">'
+			+'					<span class="col-md-1 col-md-offset-2 text-center">'
+			+'						<i class="fa fa-user bigicon"></i>'
+			+'					</span>'
+			+'					<div class="col-md-12">'
+			+'						<input id="fname" name="title" type="text" +placeholder="제 목" class="form-control" />'
+			+'					</div>'
+			+'				</div>'
+			+'				<div class="form-group">'
+			+'					<span class="col-md-1 col-md-offset-2 text-center">'
+			+'						<i class="fa fa-user bigicon"></i>'
+			+'					</span>'
+			+'					<div class="col-md-12">'
+			+'						<input id="name" name="name" type="text" +placeholder="글쓴이" class="form-control" />'
+			+'					</div>'
+			+'				</div>'
+			+'				<div class="form-group">'
+			+'					<span class="col-md-1 col-md-offset-2 text-center">'
+			+'						<i class="fa fa-pencil-square-o bigicon"></i>'
+			+'					</span>'
+			+'					<div class="col-md-12">'
+			+'						<textarea class="form-control" name="message" id="message" rows="15"></textarea>'
+			+'					</div>'
+			+'				</div>'
+			+'				<div class="form-group">'
+			+'					<div class="col-md-12 text-center">'
+			+'						<button id="okBtn" type="submit" style="width:200px" class="btn +btn-primary btn-lg">확인</button>'
+			+'						<button id="cancleBtn" type="reset" style="width:200px" class="btn +btn-danger btn-lg">취소</button>'
+			+'					</div>'
+			+'				</div>'
+			+'				</fieldset>'
+			+'				</form>'
+			+'			</div>'
+			+'		</div>'
+			+'	</div>'
+			+'</div>';
 		}
 }

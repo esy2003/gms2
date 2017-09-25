@@ -66,93 +66,130 @@ meta.index=(()=>{
 			.css({'margin-left':'10px'})
 			.appendTo($('#h-btn'))
 			.mouseover(()=>{
-				var url = ctx + '/get/board/list';
-				$.getJSON(url,data=>{
-				$container.empty();
-				$container.append(introUI.navbar());
-				compUI.div('content').appendTo($container);
-				$content= $('#content');
-				var tbl=bbsUI.tbl();
-				/*var a = [
-					{
-						a : 1,
-						b : '한국인사',
-						c : '안녕',
-						d : '길동',
-						e : '2017-09-10',
-						f : 10
-					},{
-						a : 2,
-						b : '미국인사',
-						c : 'hello',
-						d : 'json',
-						e : '2017-09-20',
-						f : 20
-					},{
-						a : 3,
-						b : '태국인사',
-						c : '사와디캅',
-						d : '푸팟퐁커리',
-						e : '2017-09-10',
-						f : 1
-					},{
-						a : 4,
-						b : '중국인사',
-						c : '니하오',
-						d : '쭝궈런',
-						e : '2017-09-10',
-						f : 101
-					},{
-						a : 5,
-						b : '일본인사',
-						c : '곤니찌와',
-						d : '나베',
-						e : '2017-09-10',
-						f : 106
-					}
-				]*/
-				var tr='';
-				alert('결과값은'+data.result);
-				$.each(data.list,function(i,j) {
-					tr+= '<tr style = "height:30px;">'
-						+'<td>'+j.articleSeq+'</td>'
-						+'<td>'+j.title+'</td>'
-						+'<td>'+j.content+'</td>'
-						+'<td>'+j.userId+'</td>'
-						+'<td>'+j.regdate+'</td>'
-						+'<td>'+j.hitCount+'</td>'
-						+'</tr>'
-				});
-				console.log('tr' + tr);
-				
-				$content.html(tbl);
-				$('#tbody').html(tr);
-				});
-				
-				/*$container.empty();
-				$container.append(introUI.navbar());
-				compUI.div('content').appendTo($container);
-				$content= $('#content');
-				$('#board-list-h1').html('리스트').css({'text-align':'center'});
-				compUI.tag('table', 'board-tab').appendTo($content);
-				$('#board-tab').addClass('table');
-				compUI.tag('thead', 'board-thead').appendTo($('#board-tab'));
-				compUI.tag('tr','board-th-tr').appendTo($('#board-thead'));
-				compUI.tag('tbody', 'board-tbody').appendTo($('#board-tab'));
-				compUI.tag('tr', 'board-tb-tr').appendTo($('#board-tbody'));
-				compUI.noIdTag('th').text('No').appendTo($('#board-th-tr'));
-				compUI.noIdTag('th').text('제목').appendTo($('#board-th-tr'));
-				compUI.noIdTag('th').text('내용').appendTo($('#board-th-tr'));
-				compUI.noIdTag('th').text('등록일').appendTo($('#board-th-tr'));
-				compUI.noIdTag('th').text('글쓴이').appendTo($('#board-th-tr'));
-				compUI.noIdTag('th').text('조회수').appendTo($('#board-th-tr'));
-				for (var i=0;i<6;i++) {
-				compUI.noIdTag('td').css({'text-align':'left'}).text('내용이다').appendTo($('#board-tb-tr'));
-				}*/
+				meta.board.lists();
 			});
 		});
 		};
 	return {init:init};
+})();
+
+meta.board=(()=>{
+	var temp,$container,$navbar,ctx;
+	var init=()=> {
+		temp=$$('j')+"/template.js";
+		$container=$('#container');
+		$navbar=$('#navbar');
+		ctx=$$('x');
+	}
+	var lists = ()=> {
+		init();
+		var url = ctx + '/list/board';
+		$.getJSON(url,data=>{
+			alert('토오탈은 : '+data.total.count);
+		$container.empty();
+		$container.append(introUI.navbar());
+		compUI.div('content').appendTo($container);
+		$content= $('#content');
+		$content.append(bbsUI.search());
+		$content.append(bbsUI.count());
+		$content.append(bbsUI.writeBtn());
+		var tbl=bbsUI.tbl();
+
+		var tr='';
+		alert('결과값은'+data.result);
+		$.each(data.list,function(i,j) {
+			tr+= '<tr style = "height:30px;">'
+				+'<td>'+j.articleSeq+'</td>'
+				+'<td><a onclick="meta.board.detail('+j.articleSeq+')">'+j.title+'</a></td>'
+				+'<td>'+j.content+'</td>'
+				+'<td>'+j.userId+'</td>'
+				+'<td>'+j.regdate+'</td>'
+				+'<td>'+j.hitCount+'</td>'
+				+'</tr>'
+		});
+		console.log('tr' + tr);
+		$count = $('#total').text('총 게시글 수우우우');
+		$count.append(data.total.count);
+		$('#writeBtn').click(e=>{
+			meta.board.write();
+		});
+		$content.append(tbl);
+		$('#tbody').html(tr);
+		$content.append(bbsUI.pagination());
+		});
+	};
+	var detail=x=> {
+		meta.board.init();
+		var url = ctx + '/get/board/detail/'+x;
+		$.getJSON(url,data=>{
+			$.getScript(temp,()=> {
+				$container.empty();
+				$container.append(introUI.navbar());
+				$container.append(bbsUI.detail());
+				$('#text-header-board').text('게시글 보기');
+				$('#okBtn').text('수정하기')
+				.click(e=> {
+					e.preventDefault();
+					update(x);
+				});
+				$('#cancleBtn').html('삭제').click(e=> {
+					e.preventDefault();
+					deleteArticle();
+				});
+				$('#okBtn').attr('type','button');
+				$('#cancleBtn').click(()=> {
+					$container.empty();
+					meta.index.init();
+				});
+				$('#okBtn').click(()=> {
+					update();
+				});
+				$('#fname').val(data.detail.title).attr('readonly','true');
+				$('#name').val(data.detail.userId).attr('readonly', 'true');
+				$('#message').val(data.detail.content).attr('readonly', 'true');
+			});
+		});
+	};
+	var update =()=> {
+		meta.board.init();
+		$.getScript(temp,()=> {
+			$container.empty();
+			$container.append(introUI.navbar());
+			$container.append(bbsUI.detail());
+			$('#text-header-board').text('게시글 수정');
+			$('#okBtn').click(()=> {
+				$container.empty();
+				$container.append(introUI.navbar());
+				$container.append(meta.board.lists());
+			});
+			$('#cancleBtn').click(()=> {
+				$container.empty();
+				$container.append(introUI.navbar());
+				$container.append(meta.board.lists());
+			});
+		});
+	};
+	var write=x=> {
+		meta.board.init();
+		$.getScript(temp,()=> {
+			$container.empty();
+			$container.append(introUI.navbar());
+			$container.append(meta.board.lists());
+		});
+	}
+	var deleteArticle = x=>{
+		meta.board.init();
+		$container.empty();
+		meta.board.lists();
+	}
+	return {
+		init:init,
+		detail:detail,
+		write:write,
+		update:update,
+		deleteArticle:deleteArticle,
+		lists:lists
+	};
 })();
 
 meta.auth=(()=>{

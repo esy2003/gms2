@@ -1,8 +1,6 @@
 package com.gms.web.board;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -14,9 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gms.web.command.Command;
+import com.gms.web.command.RespMap;
 import com.gms.web.common.HomeController;
 import com.gms.web.mapper.BoardMapper;
 import com.gms.web.mapper.GradeMapper;
+import com.gms.web.service.IGetService;
 import com.gms.web.service.IListService;
 
 @RestController
@@ -26,20 +26,26 @@ public class BoardController {
    @Autowired GradeMapper gradeMapper;
    @Autowired Command cmd;
    
-   @RequestMapping("/get/{cate}/list")
+   @RequestMapping("/list/{cate}")
    public @ResponseBody Map<?,?> list(@PathVariable String cate) {
-	   IListService listService=null;
+	   IListService listService = null;
+	   IGetService countService = null;
 	   Map<String,Object> map = new HashMap<>();
 	   
 	   switch(cate) {
 	   case "board": 
 		   cmd=null;
 		   listService = (x)-> {
-			   return boardMapper.selectSome(cmd);
+			   return boardMapper.selectList(cmd);
 		   };
-		   System.out.println("리스트서빙ㅇ스슷슷ㅅ스"+listService);
+		   countService=(x)-> {
+			   return boardMapper.count(cmd);
+		   };
+		   RespMap r = (RespMap) countService.execute(cmd);
 		   map.put("result", "success");
 		   map.put("list", listService.execute(cmd));
+		   map.put("total", r);
+		   
 		   break;
 		   
 	   case "grade":
@@ -52,10 +58,24 @@ public class BoardController {
 	   }
 	   return map;
    }
-   
-   public @ResponseBody Map<?,?> get() {
-	 
-	   return null;
+   @RequestMapping("/get/{cate}/detail/{seq}")
+   public @ResponseBody Map<?,?> get(@PathVariable String seq, @PathVariable String cate) {
+	   IGetService detailService = null;
+	   Map<String,Object> map = new HashMap<>();
+	   Article bean=null;
+	   switch(cate) {
+	   case "board":
+		   cmd=new Command();
+		   detailService = x-> {
+			   return boardMapper.selectOne(cmd);
+		   };
+		   cmd.setSearch(seq);
+		   bean = (Article) detailService.execute(cmd);
+		   break;
+	   }
+	   map.put("seq", cmd.getSearch());
+	   map.put("detail", bean);
+	   return map;
    }
    public @ResponseBody Map<?,?> put() {
 	   return null;
@@ -64,8 +84,4 @@ public class BoardController {
 	   return null;
    }
    
-   @RequestMapping("/board_delete")
-   public String boardDelete() {
-	   return "auth:/board/board_list.tiles";
-   }
 }
