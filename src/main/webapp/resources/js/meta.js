@@ -126,27 +126,79 @@ meta.board=(()=>{
 				$container.empty();
 				$container.append(introUI.navbar());
 				$container.append(bbsUI.detail());
+				$('#okBtn').attr('type','button');
+				$('#fname').val(data.detail.title).attr('readonly','true').css({'text-align':'center'});
+				$('#name').val(data.detail.userId).attr('readonly', 'true').css({'text-align':'center'});
+				$('#message').val(data.detail.content).attr('readonly', 'true').css({'text-align':'center'});
+				$('#regdate').html(data.detail.regdate);
+				$('#form-group').css({'text-align':'right'});
+				$('#regdate').css({'margin-right':'15px'});
 				$('#text-header-board').text('게시글 보기');
+
+				$('#cancleBtn')
+				.attr('data-toggle', 'modal')
+				.attr('data-target','#modal')
+				.addClass('btn btn-primary')
+				.html('삭제하기')
+				.click(e=> {
+					$('#passCheckBtn').click((e)=>{
+						e.preventDefault();
+						var _seq = data.detail.articleSeq;
+						var _id = data.detail.userId;
+						var _pass = $('#user-email2').val();
+						deleteArticle(_seq,_id,_pass);
+					});
+				});
 				$('#okBtn').text('수정하기')
 				.click(e=> {
 					e.preventDefault();
-					update(x);
+					$('#okBtn').attr('id','updateBtn').text('확 인');
+					$('#cancleBtn').attr('id','resetBtn').text('리 셋').attr('type','reset').removeAttr('data-toggle').removeAttr('data-target');
+					$('#text-header-board').text('게시글 수정');
+					$('#fname').attr('placeholder',data.detail.title).removeAttr('readonly','true');
+					$('#message').attr('placeholder',data.detail.content).removeAttr('readonly','true');
+					$('#updateBtn').click(e=> {
+						var _seq=data.detail.articleSeq;
+						var _title=$('#fname').val();
+						var _writer=$('#name').val();
+						var _message=$('#message').val();
+						
+						if (_title.length==0) {
+							alert('제목은 지울수 없습니다');
+							return false;
+						}
+						e.preventDefault();
+						$.ajax({
+							url : ctx + '/put/board',
+							method : 'post',
+							data : JSON.stringify({
+								'articleSeq':_seq,
+								'title':_title,
+								'userId':_writer,
+								'content':_message
+							}),
+							contentType : 'application/json',
+							success : d=>{
+								alert('ajax 통신 성공'+d.msg);
+								detail(_seq);
+							},
+							error : (x,s,m)=> {
+								alert('글 수정시 에러 발생'+m);
+							}
+						});
+						$container.empty();
+						$container.append(introUI.navbar());
+					});
+					$('#resetBtn').click(()=> {
+						$container.empty();
+						$container.append(introUI.navbar());
+						$container.append(meta.board.lists());
+					});
 				});
-				$('#cancleBtn').html('삭제').click(e=> {
-					e.preventDefault();
-					deleteArticle();
+				
+				$('#goList').click(()=>{
+					meta.board.lists();
 				});
-				$('#okBtn').attr('type','button');
-				$('#cancleBtn').click(()=> {
-					$container.empty();
-					meta.index.init();
-				});
-				$('#okBtn').click(()=> {
-					update();
-				});
-				$('#fname').val(data.detail.title).attr('readonly','true');
-				$('#name').val(data.detail.userId).attr('readonly', 'true');
-				$('#message').val(data.detail.content).attr('readonly', 'true');
 			});
 		});
 	};
@@ -157,12 +209,11 @@ meta.board=(()=>{
 			$container.append(introUI.navbar());
 			$container.append(bbsUI.detail());
 			$('#text-header-board').text('게시글 수정');
-			$('#okBtn').click(()=> {
-				$container.empty();
-				$container.append(introUI.navbar());
-				$container.append(meta.board.lists());
-			});
-			$('#cancleBtn').click(()=> {
+			$('#okBtn').click(e=> {
+				e.preventDefault();
+				$.ajax({
+					
+				});
 				$container.empty();
 				$container.append(introUI.navbar());
 				$container.append(meta.board.lists());
@@ -174,14 +225,35 @@ meta.board=(()=>{
 		$.getScript(temp,()=> {
 			$container.empty();
 			$container.append(introUI.navbar());
-			$container.append(meta.board.lists());
+			$container.append(bbsUI.detail());
 		});
 	}
-	var deleteArticle = x=>{
-		meta.board.init();
-		$container.empty();
-		meta.board.lists();
+	var deleteArticle = (seq,id,pass)=>{
+		$.ajax({
+			url : ctx + '/delete/board',
+			method : 'post',
+			data : JSON.stringify({
+				'articleSeq':seq,
+				'userId':id,
+				'userPw':pass
+			}),
+			contentType : 'application/json',
+			success : d=>{
+				if (d.result==='success') {
+					alert('삭제되었습니다');
+					$('.modal-backdrop fade in').remove();
+					meta.board.lists();
+				}else {
+					alert('비번 틀립니다');
+				}
+			},
+			error : (x,s,m)=> {
+				alert('삭제시 에러 : '+m);
+			}
+		});
+		
 	}
+	
 	return {
 		init:init,
 		detail:detail,

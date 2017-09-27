@@ -68,7 +68,7 @@
 	</delete>
 	<select id="selectById" parameterType="com.gms.web.command.Command"
 	resultType="com.gms.web.member.StudentDTO">
-	select userId, userPw, name, ssn, phone, email, subjects from student where userId like #{search};
+	select userId, userPw, name, ssn, phone, email, subjects from student where userId like #{action};
 	</select>
 	<update id="update" parameterType="com.gms.web.member.MemberDTO">
 	UPDATE Member SET email = #{email} ,phone = #{phone} WHERE userId = #{userId};

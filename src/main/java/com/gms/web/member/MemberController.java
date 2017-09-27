@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.gms.web.command.CommandDTO;
+import com.gms.web.command.Command;
 import com.gms.web.common.HomeController;
 import com.gms.web.proxy.PageProxy;
 
@@ -28,7 +28,7 @@ import com.gms.web.proxy.PageProxy;
 public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired MemberService service;
-	@Autowired CommandDTO cmd;
+	@Autowired Command cmd;
 	@Autowired PageProxy pxy;
 	@Autowired StudentDTO stu;
 	@Autowired MemberDTO member;
@@ -114,7 +114,7 @@ public class MemberController {
 	}
 	@RequestMapping("/member_detail/{search}")
 	public String memberDetail(Model model, @PathVariable String search) {
-		cmd.setSearch(search);
+		cmd.setAction(search);
 		model.addAttribute("student",service.findById(cmd));
 		return "auth:member/member_detail.tiles";
 	}

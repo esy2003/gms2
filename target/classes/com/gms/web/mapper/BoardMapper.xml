@@ -4,13 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.gms.web.mapper.BoardMapper">
 	<resultMap id="resultMap" type="com.gms.web.command.RespMap">
-		<id property="seq" column="resp"/>
+		<id property="articleSeq" column="article_seq"/>
 		<result property="userId" column="userId"/>
 		<result property="count" column="count"/>
 		<result property="title" column="title"/>
 		<result property="content" column="content"/>
 		<result property="regdate" column="regdate"/>
 		<result property="userPw" column="userPw"/>
+		<result property="hitCount" column="hitcount"/>
 		<result property="name" column="name"/>
 		<result property="ssn" column="ssn"/>
 		<result property="email" column="email"/>
@@ -49,13 +50,22 @@
 	</insert>
 
 	<select id="selectOne" parameterType="com.gms.web.command.Command"
-	resultMap="article">
-		select * from board where article_seq like #{search}
+	resultMap="resultMap">
+		select * from board where article_seq = #{search}
 	</select>
 
 	<select id="count" resultMap="resultMap">
 		select count(*) as count from board;
 	</select>
+	
+	<update id="update" parameterType="com.gms.web.command.Command">
+		update board set title = #{action}, content = #{dir} where article_seq = #{search}
+		<!-- UPDATE Member SET userPw='3' WHERE userId = 'jung'; -->
+	</update>
+
+	<delete id="delete" parameterType="com.gms.web.command.Command">
+		delete from board where article_seq = #{search}
+	</delete>
 
   <select id="selectList"
    resultMap="article" 

@@ -2,7 +2,7 @@ package com.gms.web.complex;
 
 import org.springframework.stereotype.Component;
 
-import com.gms.web.command.CommandDTO;
+import com.gms.web.command.Command;
 import com.gms.web.command.ListCommand;
 import com.gms.web.command.MoveCommand;
 import com.gms.web.command.SearchCommand;
@@ -10,8 +10,8 @@ import com.gms.web.constants.Action;
 
 @Component
 public class CommandFactory {
-	public static CommandDTO createCommand(String dir, String action, String page, String pageNumber, String column, String search) {
-		CommandDTO cmd = null;
+	public static Command createCommand(String dir, String action, String page, String pageNumber, String column, String search) {
+		Command cmd = null;
 		if (action==null) {
 			action=Action.MOVE;
 		}

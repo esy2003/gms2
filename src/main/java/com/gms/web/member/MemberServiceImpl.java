@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.gms.web.command.CommandDTO;
+import com.gms.web.command.Command;
 import com.gms.web.common.HomeController;
 import com.gms.web.mapper.GradeMapper;
 import com.gms.web.mapper.MemberMapper;
@@ -22,7 +22,7 @@ import com.gms.web.member.MemberService;
 @Service
 public class MemberServiceImpl implements MemberService {
 	@Autowired MemberMapper mapper;
-	@Autowired CommandDTO cmd;
+	@Autowired Command cmd;
 	@Autowired MemberDTO member;
 	@Autowired StudentDTO student;
 	@Autowired MajorDTO major;
@@ -43,7 +43,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<StudentDTO> getMembers(CommandDTO cmd) {
+	public List<StudentDTO> getMembers(Command cmd) {
 		return (List<StudentDTO>) mapper.selectAll(cmd);
 	}
 
@@ -56,14 +56,14 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	@Override
-	public List<StudentDTO> findByName(CommandDTO cmd) {
+	public List<StudentDTO> findByName(Command cmd) {
 		@SuppressWarnings("unchecked")
 		List<StudentDTO> list = (List<StudentDTO>) mapper.selectByName(cmd);
 		return list;
 	}
 
 	@Override
-	public StudentDTO findById(CommandDTO cmd) {
+	public StudentDTO findById(Command cmd) {
 		return mapper.selectById(cmd);
 	}
 	
@@ -72,11 +72,11 @@ public class MemberServiceImpl implements MemberService {
 		return mapper.update(member);
 	}
 	@Override
-	public int remove(CommandDTO cmd) {
+	public int remove(Command cmd) {
 		return mapper.delete(cmd);
 	}
     @Override
-    public Map<String, Object> login(CommandDTO cmd) {
+    public Map<String, Object> login(Command cmd) {
     	Map<String, Object> map = new HashMap<>();
     	String result = "";
     	String page = "";

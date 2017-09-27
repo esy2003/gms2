@@ -6,5 +6,5 @@ import lombok.Data;
 
 @Component @Data
 public class RespMap {
-	private String userId, title, content, regdate, userPw, name, ssn, email, major, phone, profile, count;
+	private String articleSeq, userId, title, content, regdate, userPw, hitCount, name, ssn, email, major, phone, profile, count;
 }

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.gms.web.command.CommandDTO;
+import com.gms.web.command.Command;
 import com.gms.web.member.MemberDTO;
 import com.gms.web.member.MemberService;
 import com.gms.web.member.StudentDTO;
@@ -26,7 +26,7 @@ public class AuthController {
    @Autowired StudentDTO stu;
    @Autowired MemberService service;
    @Autowired MemberDTO bean;
-   @Autowired CommandDTO cmd;
+   @Autowired Command cmd;
    
    @RequestMapping("/login_view")
    public String goLogin(Model model) {

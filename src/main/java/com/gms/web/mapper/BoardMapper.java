@@ -11,7 +11,7 @@ import com.gms.web.command.RespMap;
 public interface BoardMapper {
 	public void insert(Command cmd);
     public List<Article> selectList(Command cmd);
-    public Article selectOne(Command cmd);
+    public RespMap selectOne(Command cmd);
     public RespMap count(Command cmd);
     public void update(Command cmd);
     public void delete(Command cmd);

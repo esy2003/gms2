@@ -9,7 +9,7 @@ import lombok.Data;
 @Lazy @Component @Data
 public class Article{
 
-	private String userId, title, content, regdate;
+	private String userId, title, content, regdate, userPw;
 	private int articleSeq, hitCount;
 	@Override
 	public String toString() {

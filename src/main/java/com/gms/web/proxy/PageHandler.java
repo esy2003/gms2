@@ -2,12 +2,12 @@ package com.gms.web.proxy;
 
 import org.springframework.stereotype.Component;
 
-import com.gms.web.command.CommandDTO;
+import com.gms.web.command.Command;
 @Component
 public class PageHandler {
 	
-	public static CommandDTO attr(PageProxy pxy) {
-		CommandDTO cmd = new CommandDTO();
+	public static Command attr(PageProxy pxy) {
+		Command cmd = new Command();
 		if (pxy.getPageNumber() <= pxy.getTheNumberOfRows() / pxy.getPageSize() + 1) {
 			if (pxy.getPageNumber() == 1) {
 				
