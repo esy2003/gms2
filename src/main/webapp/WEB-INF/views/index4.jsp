@@ -33,8 +33,7 @@
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_special.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_step1.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_step2.css">
-    <script type="text/javascript" src="/common/js/extraTheaters.js"></script>
-    <!-- 각페이지 Header Start--> 
+    <!-- 각페이지 Header Start-->
     <!--/각페이지 Header End--> 
     
 </head>
@@ -59,148 +58,158 @@
 			
 			<!-- 메인컨텐츠 -->
 			<div class="steps">
-				<!-- step1 -->
+				
 				<div class="step step1">
-					<!-- MOVIE 섹션 -->
-					<div class="section section-movie">
-						<!-- col-head -->
-						<div class="col-head" id="skip_movie_list">
-							<h3 class="sreader">영화</h3>
-							<a href="#" class="skip_to_something">영화선택 건너뛰기</a>
-						</div>
-						<!-- col-body -->
-						<div class="col-body">
-							<!-- 영화선택 -->
-							<div class="movie-select">
-								<div class="tabmenu">
-									<span class="side on"></span>
-									<a href="#" class="button menu1 selected">전체</a>
-									<span class="side on"></span>
-									<a href="#" class="button menu2">아트하우스<span class="arrow"></span></a>
-									<div class="tabmenu-selectbox MOVIECOLLAGE" style="display:none;">
-										<ul>
-											<li><a href="#">전체</a></li>
-											<li><a href="#">최신작</a></li>
-										</ul>
-									</div>
-									<span class="side"></span>
-									<a href="#" class="button menu3">특별관<span class="arrow"></span></a>
-									<div class="tabmenu-selectbox SPECIALTHEATER" style="display:none;">
-										<ul>
-											<li><a href="#">전체</a></li>
-											<li><a href="#">4DX</a></li>
-											<li><a href="#">IMAX</a></li>
-											<li><a href="#">STARIUM</a></li>
-											<li><a href="#">CINE DE CHEF</a></li>
-											<li><a href="#">GOLD CLASS</a></li>
-											<li><a href="#">Brand관</a></li>
-											<li><a href="#">Premium관</a></li>
-											<li><a href="#">CINE KIDS</a></li>
-										</ul>
-									</div>
-									<span class="side"></span>
-								</div>
-								<div class="sortmenu" style="margin-top: 20px; padding-right: 15px;">
-									<a href="#" id="movieSortRankBtn" class="button btn-rank selected">예매율순</a>
-									<a href="#" id="movieSortNameBtn" class="button btn-abc">가나다순</a>
-									
-								</div>
-								<div class="movie-list nano" id="movie_list">
-									<ul class="content scroll-y"></ul>
-								</div>
-								<div class="selectbox-movie-type" style="display:none;">
-									<a href="#" class="btn-close">영화속성 레이어 닫기</a>
-									<ul>
-										<li id="sbmt_all" class="GROUP1 ALL"><a href="#">전체</a></li>
-										<li id="sbmt_digital" class="GROUP1 DIGITAL proplist"><a href="#">2D</a></li>
-										<li id="sbmt_imax" class="GROUP1 IMAX proplist"><a href="#">IMAX</a></li>
-										<li id="sbmt_4dx" class="GROUP1 4DX proplist"><a href="#">4DX</a></li>
-										<li id="sbmt_soundx" class="GROUP1 SOUNDX proplist"><a href="#">SOUNDX</a></li>
-										<li id="sbmt_screenx" class="GROUP1 SCREENX proplist"><a href="#">SCREENX</a></li>
-										<li id="sbmt_3d" class="GROUP1 3D proplist"><a href="#">3D</a></li>
-										<li id="sbmt_dubbing" class="GROUP2 DUBBING proplist"><a href="#">더빙</a></li>
-										<li id="sbmt_subtitle" class="GROUP2 SUBTITLES proplist"><a href="#">자막</a></li>
-										<li id="sbmt_lovemom" class="GROUP3 LOVEMOM proplist"><a href="#">러브맘</a></li>
-										<li id="sbmt_liveTalk" class="GROUP3 LIVETALK proplist"><a href="#">스타라이브톡</a></li>
-										<li id="sbmt_wheelchairAccess" class="GROUP3 WHEELCHAIRACCESS proplist"><a href="#">배리어프리</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- THEATER 섹션 -->
-					<div class="section section-theater">
-						<!-- col-head -->
-						<div class="col-head" id="skip_theater_list">
-							<h3 class="sreader"></h3>
-							<a href="#" class="skip_to_something">극장선택 건너뛰기</a>
-						</div>
-						<!-- col-body -->
-						<div class="col-body">
-							<!-- 극장선택 -->
-							<div class="theater-select">
-								<div class="tabmenu">
-									<span class="side on"></span>
-									<a href="#" class="button menu1 selected">전체</a>
-									<span class="side on"></span>
-									<a href="#" class="button menu2">아트하우스</a>
-									<span class="side"></span>
-									<a href="#" class="button menu3">특별관</a>
-									<span class="side"></span>
-								</div>
-								<div class="theater-list">
-									<div class="theater-area-list" id="theater_area_list">
-										<ul>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-										</ul>
-									</div>
-									<div class="theater-cgv-list nano" id="theater_cgv_list">
-										<ul class="content scroll-y"></ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- DATE 섹션 -->
-					<div class="section section-date">
-						<div class="col-head" id="skip_date_list">
-							<h3 class="sreader">날짜</h3>
-							<a href="#" class="skip_to_something">날짜 건너뛰기</a>
-						</div>
-						<div class="col-body">
-							<!-- 날짜선택 -->
-							<div class="date-list nano" id="date_list">
-								<ul class="content scroll-y"></ul>
-							</div>
-						</div>
-					</div>
-					<!-- TIME 섹션 -->
-					<div class="section section-time">
-						<div class="col-head" id="skip_time_list">
-							<h3 class="sreader">시간</h3>
-							<a href="#" class="skip_to_something">시간선택 건너뛰기</a>
-						</div>
-						<div class="col-body">
-							<!-- 시간선택 -->
-							<div class="time-option">
-								<span class="morning">조조</span><span class="night">심야</span>
-							</div>
-							<div class="placeholder">영화, 극장, 날짜를 선택해주세요.</div>
-						</div>
-					</div>
-				</div>
-				<!-- //step1 -->
-				<!-- step2 -->
-				<div class="step step2">
 					<!-- SEAT 섹션 -->
+					<div class="section section-seat">
+						<div class="col-head" id="skip_seat_list">
+							<h3 class="sreader">
+								인원 / 좌석
+								<span class="sreader">인원/좌석선택은 레이어로 서비스 되기 때문에 가상커서를 해지(Ctrl+Shift+F12)한 후 사용합니다.</span>
+							</h3>
+							<a href="#" class="skip_to_something">인원/좌석선택 건너뛰기</a>
+						</div>
+						<div class="col-body">
+							<div class="person_screen">
+								<!-- NUMBEROFPEOPLE 섹션 -->
+								<div class="section section-numberofpeople">
+									<div class="col-body">
+										<div class="numberofpeople-select">
+											<div class="group adult" id="nop_group_adult">
+												<span class="title">일반</span>
+												<ul>
+													<li class="selected"><a href="#"><span class="sreader mod">일반</span>0<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">일반</span>1<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">일반</span>2<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">일반</span>3<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">일반</span>4<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">일반</span>5<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">일반</span>6<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">일반</span>7<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">일반</span>8<span class="sreader">명</span></a></li>
+												</ul>
+											</div>
+											<div class="group youth" id="nop_group_youth">
+												<span class="title">청소년</span>
+												<ul>
+													<li class="selected"><a href="#"><span class="sreader mod">청소년</span>0<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">청소년</span>1<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">청소년</span>2<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">청소년</span>3<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">청소년</span>4<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">청소년</span>5<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">청소년</span>6<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">청소년</span>7<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">청소년</span>8<span class="sreader">명</span></a></li>
+												</ul>
+											</div>
+											<div class="group child" id="nop_group_child">
+												<span class="title">어린이</span>
+												<ul>
+													<li class="selected"><a href="#"><span class="sreader mod">어린이</span>0<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">어린이</span>1<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">어린이</span>2<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">어린이</span>3<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">어린이</span>4<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">어린이</span>5<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">어린이</span>6<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">어린이</span>7<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">어린이</span>8<span class="sreader">명</span></a></li>
+												</ul>
+											</div>
+											<div class="group special hide" id="nop_group_sepcial">
+												<span class="title">우대</span>
+												<ul>
+													<li class="selected"><a href="#"><span class="sreader mod">우대</span>0<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">우대</span>1<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">우대</span>2<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">우대</span>3<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">우대</span>4<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">우대</span>5<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">우대</span>6<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">우대</span>7<span class="sreader">명</span></a></li>
+													<li><a href="#"><span class="sreader mod">우대</span>8<span class="sreader">명</span></a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- 인접좌석 -->
+								<div class="adjacent_seat_wrap">
+									<div class="adjacent_seat" id="adjacent_seat">
+										<span class="title">좌석 붙임 설정</span>
+										<div class="block_wrap">
+										</div>
+									</div>
+								</div>
+								<!-- NUMBEROFPEOPLE 섹션 -->
+								<div class="section section-screen-select">
+									<!-- UI 변경으로 삭제 
+									<div class="title">선택하신 상영관<span>/</span>시간</div>
+									-->
+									<!-- UI 변경
+									<div class="screen-time">
+										<span class="screen"><b></b></span>
+										<span class="seats seat_all"></span>
+										<span class="time"></span>
+										<span class="seats seat_remain"></span>
+									</div>
+									-->
+									<div id="user-select-info">
+										<p class="theater-info">
+											<span class="site">CGV 천왕성</span>
+											<span class="screen">11층 8관 [Business]</span>
+											<span class="seatNum">남은좌석  <b class="restNum">100</b>/<b class="totalNum">1000</b></span>
+										</p>
+										<p class="playYMD-info"><b>2017.04.10</b><b class="exe">(월)</b><b>00:00 - 00:00</b></p>
+									</div>	
+									<a class="change_time_btn" href="#"><span>상영시간 변경하기</span></a>
+								</div>
+							</div>
+							<!-- THEATER -->
+							<div class="theater_minimap">
+								<div class="theater nano" id="seat_minimap_nano">
+									<div class="content">
+										<div class="screen" title="SCREEN"><span class="text"></span></div>
+										<div class="seats" id="seats_list">
+											
+										</div>
+									</div>
+								</div>
+								<div class="minimap opened" id="minimap">
+									<div class="mini_header">Minimap<span></span></div>
+									<div class="mini_container">
+										<div class="mini_screen">SCREEN</div>
+										<div class="mini_seats"></div>
+										<div class="mini_exits"></div>
+									</div>
+									<div class="mini_region"><span></span></div>
+								</div>
+								<div class="legend">
+									<div class="buttons">
+										<a class="btn-zoom" id="seat_zoom_btn" href="#">크게보기</a>
+									</div>
+									<div class="seat-icon-desc">
+										<span class="icon selected"><span class="icon"></span>선택</span>
+										<span class="icon reserved"><span class="icon"></span>예매완료</span>
+										<span class="icon notavail"><span class="icon"></span>선택불가</span>
+									</div>
+									<div class="seat-type">
+										<span class="radiobutton type-prime" title="최적의 영상과 사운드로 영화를 감상할 수 있는 CGV 추천좌석"><span class="icon"></span>Prime Zone</span>
+										<span class="radiobutton type-normal"><span class="icon"></span>일반석</span>
+										<span class="radiobutton type-couple" title="연인, 가족, 친구를 위한 둘만의 좌석"><span class="icon"></span>커플석</span>
+										<span class="radiobutton type-handicap"><span class="icon"></span>장애인석</span>
+										<span class="radiobutton type-sweetbox" title="국내 최대 넓이의 프리미엄 커플좌석"><span class="icon"></span>SWEETBOX</span>
+										<span class="radiobutton type-veatbox" title="음향 진동 시스템이 적용된 특별좌석"><span class="icon"></span>VEATBOX</span>
+										<span class="radiobutton type-4d" title="바람, 진동 등 오감으로 영화 관람, 4DX"><span class="icon"></span>4DX</span>
+										<span class="radiobutton type-widebox" title="일반석보다 더 넓고 편안한 좌석"><span class="icon"></span>WIDEBOX</span>
+										<span class="radiobutton type-cinekids last" title="365일 어린이 전용 상영관"><span class="icon"></span>CINEKIDS</span>
+									</div>
+								</div>
+							</div>
+						   <div class="mouse_block"></div>
+						</div>
+					</div>
 					<a class="btn-refresh" href="#">
 						<span>다시하기</span>
 					</a>
@@ -234,14 +243,11 @@
 				<div class="step step4">
 				</div>
 				<!-- //step4 -->
-				<noscript>
-					&amp;lt;div class="noscript"&amp;gt;&amp;lt;span&amp;gt;현재 사용중인 환경에서는 스크립트 동작이 활성화되지 않아 예매 서비스를 이용하실 수 없습니다.&amp;lt;br/&amp;gt;예매 서비스를 이용하기 위해서는 &amp;lt;a href='http://www.enable-javascript.com/ko/' rel='nofollow'&amp;gt;스크립트 동작을 활성화&amp;lt;/a&amp;gt; 해주세요.&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
-				</noscript>
 			</div>
 			<div class="tnb_area">
 				<div class="tnb_container">
 				
-				<div class="tnb step1">
+				<div class="tnb step2">
 					<!-- btn-left -->
 					<a class="btn-left" href="#" title="">이전단계로 이동</a>
 					<div class="info movie">

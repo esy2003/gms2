@@ -59,189 +59,20 @@
 			
 			<!-- 메인컨텐츠 -->
 			<div class="steps">
-				<!-- step1 -->
-				<div class="step step1">
-					<!-- MOVIE 섹션 -->
-					<div class="section section-movie">
-						<!-- col-head -->
-						<div class="col-head" id="skip_movie_list">
-							<h3 class="sreader">영화</h3>
-							<a href="#" class="skip_to_something">영화선택 건너뛰기</a>
-						</div>
-						<!-- col-body -->
-						<div class="col-body">
-							<!-- 영화선택 -->
-							<div class="movie-select">
-								<div class="tabmenu">
-									<span class="side on"></span>
-									<a href="#" class="button menu1 selected">전체</a>
-									<span class="side on"></span>
-									<a href="#" class="button menu2">아트하우스<span class="arrow"></span></a>
-									<div class="tabmenu-selectbox MOVIECOLLAGE" style="display:none;">
-										<ul>
-											<li><a href="#">전체</a></li>
-											<li><a href="#">최신작</a></li>
-										</ul>
-									</div>
-									<span class="side"></span>
-									<a href="#" class="button menu3">특별관<span class="arrow"></span></a>
-									<div class="tabmenu-selectbox SPECIALTHEATER" style="display:none;">
-										<ul>
-											<li><a href="#">전체</a></li>
-											<li><a href="#">4DX</a></li>
-											<li><a href="#">IMAX</a></li>
-											<li><a href="#">STARIUM</a></li>
-											<li><a href="#">CINE DE CHEF</a></li>
-											<li><a href="#">GOLD CLASS</a></li>
-											<li><a href="#">Brand관</a></li>
-											<li><a href="#">Premium관</a></li>
-											<li><a href="#">CINE KIDS</a></li>
-										</ul>
-									</div>
-									<span class="side"></span>
-								</div>
-								<div class="sortmenu" style="margin-top: 20px; padding-right: 15px;">
-									<a href="#" id="movieSortRankBtn" class="button btn-rank selected">예매율순</a>
-									<a href="#" id="movieSortNameBtn" class="button btn-abc">가나다순</a>
-									
-								</div>
-								<div class="movie-list nano" id="movie_list">
-									<ul class="content scroll-y"></ul>
-								</div>
-								<div class="selectbox-movie-type" style="display:none;">
-									<a href="#" class="btn-close">영화속성 레이어 닫기</a>
-									<ul>
-										<li id="sbmt_all" class="GROUP1 ALL"><a href="#">전체</a></li>
-										<li id="sbmt_digital" class="GROUP1 DIGITAL proplist"><a href="#">2D</a></li>
-										<li id="sbmt_imax" class="GROUP1 IMAX proplist"><a href="#">IMAX</a></li>
-										<li id="sbmt_4dx" class="GROUP1 4DX proplist"><a href="#">4DX</a></li>
-										<li id="sbmt_soundx" class="GROUP1 SOUNDX proplist"><a href="#">SOUNDX</a></li>
-										<li id="sbmt_screenx" class="GROUP1 SCREENX proplist"><a href="#">SCREENX</a></li>
-										<li id="sbmt_3d" class="GROUP1 3D proplist"><a href="#">3D</a></li>
-										<li id="sbmt_dubbing" class="GROUP2 DUBBING proplist"><a href="#">더빙</a></li>
-										<li id="sbmt_subtitle" class="GROUP2 SUBTITLES proplist"><a href="#">자막</a></li>
-										<li id="sbmt_lovemom" class="GROUP3 LOVEMOM proplist"><a href="#">러브맘</a></li>
-										<li id="sbmt_liveTalk" class="GROUP3 LIVETALK proplist"><a href="#">스타라이브톡</a></li>
-										<li id="sbmt_wheelchairAccess" class="GROUP3 WHEELCHAIRACCESS proplist"><a href="#">배리어프리</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- THEATER 섹션 -->
-					<div class="section section-theater">
-						<!-- col-head -->
-						<div class="col-head" id="skip_theater_list">
-							<h3 class="sreader"></h3>
-							<a href="#" class="skip_to_something">극장선택 건너뛰기</a>
-						</div>
-						<!-- col-body -->
-						<div class="col-body">
-							<!-- 극장선택 -->
-							<div class="theater-select">
-								<div class="tabmenu">
-									<span class="side on"></span>
-									<a href="#" class="button menu1 selected">전체</a>
-									<span class="side on"></span>
-									<a href="#" class="button menu2">아트하우스</a>
-									<span class="side"></span>
-									<a href="#" class="button menu3">특별관</a>
-									<span class="side"></span>
-								</div>
-								<div class="theater-list">
-									<div class="theater-area-list" id="theater_area_list">
-										<ul>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-										</ul>
-									</div>
-									<div class="theater-cgv-list nano" id="theater_cgv_list">
-										<ul class="content scroll-y"></ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- DATE 섹션 -->
-					<div class="section section-date">
-						<div class="col-head" id="skip_date_list">
-							<h3 class="sreader">날짜</h3>
-							<a href="#" class="skip_to_something">날짜 건너뛰기</a>
-						</div>
-						<div class="col-body">
-							<!-- 날짜선택 -->
-							<div class="date-list nano" id="date_list">
-								<ul class="content scroll-y"></ul>
-							</div>
-						</div>
-					</div>
-					<!-- TIME 섹션 -->
-					<div class="section section-time">
-						<div class="col-head" id="skip_time_list">
-							<h3 class="sreader">시간</h3>
-							<a href="#" class="skip_to_something">시간선택 건너뛰기</a>
-						</div>
-						<div class="col-body">
-							<!-- 시간선택 -->
-							<div class="time-option">
-								<span class="morning">조조</span><span class="night">심야</span>
-							</div>
-							<div class="placeholder">영화, 극장, 날짜를 선택해주세요.</div>
-						</div>
-					</div>
-				</div>
-				<!-- //step1 -->
-				<!-- step2 -->
-				<div class="step step2">
-					<!-- SEAT 섹션 -->
-					<a class="btn-refresh" href="#">
-						<span>다시하기</span>
-					</a>
-					<!-- 시간표 변경 -->
-					<div class="section_time_popup" id="section_time_popup">
-						<div class="canvas">
-							<div class="sprite">
-								<div class="time-option">
-									<span class="morning">조조</span><span class="night">심야</span>
-								</div>
-								<div class="time-list nano" id="time_popup_list">
-									<div class="content scroll-y"></div>
-								</div>
-							</div>
-							<div class="buttons">
-								<a href="#" class="btn_ok"><span>확인</span></a>
-								<a href="#" class="btn_cancel"><span>취소</span></a>
-								<a href="#" class="sreader">시간표 변경 팝업 닫기</a>
-							</div>
-						</div>
-						<div class="corner"></div>
-					</div>
-					<!-- 시간표 변경 -->
-				</div>
-				<!-- //step2 -->
+				
 				<!-- step3 -->
-				<div class="step step3">
+				<div class="step step1">
 				</div>
 				<!-- //step3 -->
 				<!-- step4 -->
 				<div class="step step4">
 				</div>
 				<!-- //step4 -->
-				<noscript>
-					&amp;lt;div class="noscript"&amp;gt;&amp;lt;span&amp;gt;현재 사용중인 환경에서는 스크립트 동작이 활성화되지 않아 예매 서비스를 이용하실 수 없습니다.&amp;lt;br/&amp;gt;예매 서비스를 이용하기 위해서는 &amp;lt;a href='http://www.enable-javascript.com/ko/' rel='nofollow'&amp;gt;스크립트 동작을 활성화&amp;lt;/a&amp;gt; 해주세요.&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
-				</noscript>
 			</div>
 			<div class="tnb_area">
 				<div class="tnb_container">
 				
-				<div class="tnb step1">
+				<div class="tnb step3">
 					<!-- btn-left -->
 					<a class="btn-left" href="#" title="">이전단계로 이동</a>
 					<div class="info movie">

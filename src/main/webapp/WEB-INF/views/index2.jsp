@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="ko"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -15,6 +17,9 @@
 	<meta http-equiv="imagetoolbar" content="no">
 	<meta name="keywords" content="CGV, 시지브이, 영화관, 극장, 영화, 티켓, 박스오피스, 극장, Movie, Theater, Cinema, Cgv, cgv, 예매, 상영작">
 	<meta name="description" content="영화 그 이상의 감동. CGV">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>빠른예매 | 영화 그 이상의 감동. CGV</title>
     <meta name="description" content="CGV는 선진화된 관람문화와 최고의 서비스로 고객에게 잊을 수 없는 감동을 선사합니다. CGV홈페이지를 통해 영화 예매뿐만 아니라 그 이상의 서비스와 감동을 전달하고, 다양한 즐거움과 특별한 경험을 제공하고자 합니다.">
     <link rel="shortcut icon" type="image/x-icon" href="http://img.cgv.co.kr/R2014/images/favicon.ico">
@@ -28,12 +33,13 @@
     <link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/common.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation.css">
 	<link rel="stylesheet" href="resources/css/cnb.css">
+	<link rel="stylesheet" href="${path.css}/selectMovie.css">	
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_popup.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_special.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_step1.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_step2.css">
-    <script type="text/javascript" src="/common/js/extraTheaters.js"></script>
+	<script src="${path.js}/lsy.js"></script>
     <!-- 각페이지 Header Start--> 
     <!--/각페이지 Header End--> 
     
@@ -106,7 +112,18 @@
 									
 								</div>
 								<div class="movie-list nano" id="movie_list">
-									<ul class="content scroll-y"></ul>
+									<ul class="content scroll-y" style="margin-top: 30px;">
+										<c:forEach var="i" begin="0" end="15" step="1">
+											<li onclick="lsy.movieDetail.init(${i+1});" class="movie-list-detail${i+1}">
+												<span class="movie-icon">
+													<img src="${path.img }/15.PNG" alt="" />
+												</span>
+												<span style="font-weight: bold;" class="movie_text${i+1}">범죄도시</span>
+											</li>	
+										</c:forEach>
+										<li>
+										</li>
+									</ul>
 								</div>
 								<div class="selectbox-movie-type" style="display:none;">
 									<a href="#" class="btn-close">영화속성 레이어 닫기</a>
@@ -151,15 +168,21 @@
 								<div class="theater-list">
 									<div class="theater-area-list" id="theater_area_list">
 										<ul>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
-											<li><a href="#" onclick=""><span class="name"></span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
+											<li class="selected"><a href="#" onclick=""><span class="name">서울</span><span class="count"></span></a><div class="area_theater_list nano">
+											<ul id="content-scroll-seoul" class="content srcoll-y">
+												<c:forEach var="i" begin="0" end="10" step="1">
+													<li class="theater_list${i+1}" onclick="lsy.detailSelect.init(${i+1});" style="margin-left: 20px; color: #333; font-weight: bold; cursor: pointer;">강남${i+1}</li>
+												</c:forEach>
+											</ul>
+											</div></li>
+											<li><a href="#" onclick=""><span class="name">경기</span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
+											<li><a href="#" onclick=""><span class="name">인천</span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
+											<li><a href="#" onclick=""><span class="name">강원</span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
+											<li><a href="#" onclick=""><span class="name">대전/충청</span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
+											<li><a href="#" onclick=""><span class="name">대구</span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
+											<li><a href="#" onclick=""><span class="name">부산/울산</span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
+											<li><a href="#" onclick=""><span class="name">경상</span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
+											<li><a href="#" onclick=""><span class="name">광주/전라/제주</span><span class="count"></span></a><div class="area_theater_list nano"><ul class="content scroll-y"></ul></div></li>
 										</ul>
 									</div>
 									<div class="theater-cgv-list nano" id="theater_cgv_list">
@@ -177,8 +200,86 @@
 						</div>
 						<div class="col-body">
 							<!-- 날짜선택 -->
-							<div class="date-list nano" id="date_list">
-								<ul class="content scroll-y"></ul>
+							<div class="date-list nano has-scrollbar has-scrollbar-y" id="date_list" style="height: 522px;">
+								<ul class="content scroll-y" tabindex="-1" style="right: -17px;">
+								<li class="month dimmed">
+									<div>
+										<span class="year">2017</span>
+										<span class="month">10</span>
+										<div></div>
+									</div>
+								</li>
+								<li data-index="0" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">화</span>
+										<span class="day">10</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="1" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">수</span>
+										<span class="day">11</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="2" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">목</span>
+										<span class="day">12</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="3" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">금</span>
+										<span class="day">13</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="4" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">토</span>
+										<span class="day">14</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="5" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">일</span>
+										<span class="day">15</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="6" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">월</span>
+										<span class="day">16</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="7" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">화</span>
+										<span class="day">17</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="8" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">수</span>
+										<span class="day">18</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								<li data-index="9" class="day">
+									<a href="#" onclick="return false;">
+										<span class="dayweek">목</span>
+										<span class="day">19</span>
+										<span class="sreader"></span>
+									</a>
+								</li>
+								</ul>
 							</div>
 						</div>
 					</div>
@@ -402,12 +503,13 @@
 						<div class="row movie_rating">
 							<span class="data"></span>
 						</div>
-						<div class="placeholder" title="영화선택"></div>
+						<div id="movie_list_select" title="영화선택">
+						</div>
 					</div>
 					<div class="info theater">
 						<div class="row name">
 							<span class="header">극장</span>
-							<span class="data letter-spacing-min ellipsis-line1"><a href="#" title="새창열기">극장정보 상세보기</a></span>
+							<span id="theater_detail" class="data letter-spacing-min ellipsis-line1"><a href="#" title="새창열기">극장정보 상세보기</a></span>
 						</div>
 						<div class="row date">
 							<span class="header">일시</span>
@@ -674,4 +776,7 @@
 	</div>
 	<!-- /Contaniner -->
 </div>
+<script>
+lsy.common.init('${path.ctx }');
+</script>
 </body></html>
