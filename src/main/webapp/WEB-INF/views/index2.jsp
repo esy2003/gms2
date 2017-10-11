@@ -114,7 +114,7 @@
 								<div class="movie-list nano" id="movie_list">
 									<ul class="content scroll-y" style="margin-top: 30px;">
 										<c:forEach var="i" begin="0" end="15" step="1">
-											<li onclick="lsy.movieDetail.init(${i+1});" class="movie-list-detail${i+1}">
+											<li onclick="lsy.movieDetail.init(${i+1});" style="cursor: pointer;" class="movie-list-detail${i+1}">
 												<span class="movie-icon">
 													<img src="${path.img }/15.PNG" alt="" />
 												</span>
@@ -171,7 +171,7 @@
 											<li class="selected"><a href="#" onclick=""><span class="name">서울</span><span class="count"></span></a><div class="area_theater_list nano">
 											<ul id="content-scroll-seoul" class="content srcoll-y">
 												<c:forEach var="i" begin="0" end="10" step="1">
-													<li class="theater_list${i+1}" onclick="lsy.detailSelect.init(${i+1});" style="margin-left: 20px; color: #333; font-weight: bold; cursor: pointer;">강남${i+1}</li>
+													<li class="theater_list${i+1}" style="margin-left: 20px; color: #333; font-weight: bold; cursor: pointer;"  onclick="lsy.detailSelect.init(${i+1});">강남${i+1}</li>
 												</c:forEach>
 											</ul>
 											</div></li>
@@ -201,7 +201,7 @@
 						<div class="col-body">
 							<!-- 날짜선택 -->
 							<div class="date-list nano has-scrollbar has-scrollbar-y" id="date_list" style="height: 522px;">
-								<ul class="content scroll-y" tabindex="-1" style="right: -17px;">
+								<ul id="day_selected_ul" class="content scroll-y" tabindex="-1" style="right: -17px;">
 								<li class="month dimmed">
 									<div>
 										<span class="year">2017</span>
@@ -209,73 +209,73 @@
 										<div></div>
 									</div>
 								</li>
-								<li data-index="0" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">화</span>
-										<span class="day">10</span>
+								<li data-index="0" class="day day_selected0" onclick="lsy.date.init('0')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek0">화</span>
+										<span class="day" id="detail_day0">10</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="1" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">수</span>
-										<span class="day">11</span>
+								<li data-index="1" class="day day_selected1" onclick="lsy.date.init('1')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek1">수</span>
+										<span class="day" id="detail_day1">11</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="2" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">목</span>
-										<span class="day">12</span>
+								<li data-index="2" class="day day_selected2" onclick="lsy.date.init('2')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek2">목</span>
+										<span class="day" id="detail_day2">12</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="3" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">금</span>
-										<span class="day">13</span>
+								<li data-index="3" class="day day_selected3" onclick="lsy.date.init('3')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek3">금</span>
+										<span class="day" id="detail_day3">13</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="4" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">토</span>
-										<span class="day">14</span>
+								<li data-index="4" class="day day_selected4" onclick="lsy.date.init('4')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek4">토</span>
+										<span class="day" id="detail_day4">14</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="5" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">일</span>
-										<span class="day">15</span>
+								<li data-index="5" class="day day_selected5" onclick="lsy.date.init('5')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek5">일</span>
+										<span class="day" id="detail_day5">15</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="6" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">월</span>
-										<span class="day">16</span>
+								<li data-index="6" class="day day_selected6" onclick="lsy.date.init('6')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek6">월</span>
+										<span class="day" id="detail_day6">16</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="7" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">화</span>
-										<span class="day">17</span>
+								<li data-index="7" class="day day_selected7" onclick="lsy.date.init('7')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek7">화</span>
+										<span class="day" id="detail_day7">17</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="8" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">수</span>
-										<span class="day">18</span>
+								<li data-index="8" class="day day_selected8" onclick="lsy.date.init('8')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek8">수</span>
+										<span class="day" id="detail_day8">18</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
-								<li data-index="9" class="day">
-									<a href="#" onclick="return false;">
-										<span class="dayweek">목</span>
-										<span class="day">19</span>
+								<li data-index="9" class="day day_selected9" onclick="lsy.date.init('9')">
+									<a href="#">
+										<span class="dayweek" id="detail_dayweek9">목</span>
+										<span class="day" id="detail_day9">19</span>
 										<span class="sreader"></span>
 									</a>
 								</li>
@@ -294,7 +294,7 @@
 							<div class="time-option">
 								<span class="morning">조조</span><span class="night">심야</span>
 							</div>
-							<div class="placeholder">영화, 극장, 날짜를 선택해주세요.</div>
+							<div id="time_select_detail" class="placeholder">영화, 극장, 날짜를 선택해주세요.</div>
 						</div>
 					</div>
 				</div>
@@ -511,9 +511,10 @@
 							<span class="header">극장</span>
 							<span id="theater_detail" class="data letter-spacing-min ellipsis-line1"><a href="#" title="새창열기">극장정보 상세보기</a></span>
 						</div>
-						<div class="row date">
-							<span class="header">일시</span>
-							<span class="data"></span>
+						<div class="row date" style="display: inline-flex;">
+							<span class="header" style="margin-right: 30px;">일시</span>
+							<span class="data" id="row_date_detail" style="width: 40px;"></span>
+							<span class="data" id="row_time_detail" style="width: 40px;"></span>
 						</div>
 						<div class="row screen">
 							<span class="header">상영관</span>
@@ -523,7 +524,7 @@
 							<span class="header">인원</span>
 							<span class="data"></span>
 						</div>
-						<div class="placeholder" title="극장선택"></div>
+						<div class="placeholder" title="극장선택" id="theater_select_box"></div>
 					</div>
 					<div class="info seat">
 						<div class="row seat_name">

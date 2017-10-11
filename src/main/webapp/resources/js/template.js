@@ -59,6 +59,11 @@ var compUI={
 	},
 	noIdTag : (x) => {
 		return $('<'+x+'/>')
+	},
+	classTag : (x,y)=> {
+		return $('<'+x+'/>',{
+			class:y
+		});
 	}
 }
 var introUI={
