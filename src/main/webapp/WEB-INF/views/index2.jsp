@@ -33,15 +33,12 @@
     <link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/common.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation.css">
 	<link rel="stylesheet" href="resources/css/cnb.css">
-	<link rel="stylesheet" href="${path.css}/selectMovie.css">	
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_popup.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_special.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_step1.css">
 	<link rel="stylesheet" href="http://img.cgv.co.kr/CGV_RIA/Ticket/Common/css/2017/09/FOAM_TYPE2/reservation_step3_step2.css">
 	<script src="${path.js}/lsy.js"></script>
-    <!-- 각페이지 Header Start--> 
-    <!--/각페이지 Header End--> 
     
 </head>
 
@@ -493,7 +490,6 @@
 					<!-- btn-left -->
 					<a class="btn-left" href="#" title="">이전단계로 이동</a>
 					<div class="info movie">
-						<span class="movie_poster"><img src="" alt="영화 포스터"></span>
 						<div class="row movie_title colspan2">
 							<span class="data letter-spacing-min ellipsis-line2"><a href="#" title="새창열기">영화정보 상세보기</a></span>
 						</div>
@@ -503,7 +499,7 @@
 						<div class="row movie_rating">
 							<span class="data"></span>
 						</div>
-						<div id="movie_list_select" title="영화선택">
+						<div id="movie_list_select" class="placeholder" title="영화선택">
 						</div>
 					</div>
 					<div class="info theater">
@@ -517,8 +513,8 @@
 							<span class="data" id="row_time_detail" style="width: 40px;"></span>
 						</div>
 						<div class="row screen">
-							<span class="header">상영관</span>
-							<span class="data"></span>
+							<span class="header" style="width: 50px;">상영관</span>
+							<span class="data" id="theater_text"></span>
 						</div>
 						<div class="row number">
 							<span class="header">인원</span>

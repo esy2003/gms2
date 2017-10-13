@@ -114,3 +114,6 @@
 #ticket.english .tnb .info.path .row .path-step3{background:url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/tnb/tnb_steps.png) no-repeat 50% -730px;width:160px;}
 #ticket.english .tnb .info.theater .row .header{width:50px;}
 #ticket.english .tnb .info.theater .row .data{width:125px;}
+.movie-list-detail {
+	cursor: pointer;
+}

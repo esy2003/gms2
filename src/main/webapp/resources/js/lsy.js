@@ -25,6 +25,7 @@ lsy.movieDetail=(()=> {
 		$('#row_date_detail').text('');
 		$('#row_time_detail').text('');
 		$('#theater_detail').text('');
+		$('#theater_text').text('');
 		$('#day_selected_ul>li').removeClass('selected');
 		$('#movie_list>ul>li').removeClass('selected');
 		$('#date_select_detail').remove();
@@ -58,6 +59,7 @@ lsy.detailSelect=(()=> {
 		$('#date_select_detail').remove();
 		$('#row_date_detail').text('');
 		$('#row_time_detail').text('');
+		$('#theater_text').text('');
 		$('#day_selected_ul>li').removeClass('selected');
 		$('#content-scroll-seoul>li').removeClass('selected');
 		$('#content-scroll-seoul>li').css({'color':'black','font-weight':'bold'});
@@ -68,6 +70,7 @@ lsy.detailSelect=(()=> {
 	}
 	return {init:init};
 })();
+
 lsy.btnOn=(()=> {
 	var temp,i;
 	var init = ()=> {
@@ -91,11 +94,11 @@ lsy.btnOn=(()=> {
 					$('#date_select_detail').append(compUI.tag('li','date_select_detail_'+i).attr('onclick','lsy.selectTime.init('+i+')').css({'height':'30px','width':'50px','border':'1px solid #ccc','cursor':'pointer'}));					
 					$('#date_select_detail_'+i).append(compUI.classTag('a','button')
 							.append(compUI.classTag('span','time')
-									.append(compUI.noIdTag('span')
-											.css({'font-size':'17px','font-weight':'bold','line-height':'25px'})
-											.text('10:10'))))
-											.after(compUI.classTag('span','count')
-													.text('80석').css({'line-height':'30px','padding-left':'5px','padding-right':'7px'}));
+							.append(compUI.noIdTag('span')
+							.css({'font-size':'17px','font-weight':'bold','line-height':'25px'})
+							.text('10:10'))))
+							.after(compUI.classTag('span','count')
+							.text('80석').css({'line-height':'30px','padding-left':'5px','padding-right':'7px'}));
 				}
 				$('#date_select_detail_1>a>span>span').text('13:00');
 				$('#date_select_detail_2>a>span>span').text('16:30');
@@ -124,7 +127,7 @@ lsy.selectTime=(()=> {
 		$('#row_time_detail').text($('#date_select_detail_'+x+'>a>span>span').text());
 		$('#date_select_detail_'+x).css({'background-color':'#333333','border':'1px solid #5c5c5c'});
 		$('#date_select_detail_'+x+' a span span').css({'color':'#fff'});
-		alert($('#date_select_detail_'+x+'>a>span>span').text());
+		$('#theater_text').text($('#time_list_theater_detail').text());
 		if ($('#row_time_detail')!=="" && $('#movie_info_text').text()!=="" && $('#theater_detail').text()!=="극장정보 상세보기" && $('#row_date_detail').text()!=="") {
 				$('#tnb_step_btn_right').removeClass('btn-right');
 				$('#tnb_step_btn_right').addClass('btn-right on').attr('onclick','lsy.seatSelect.init()');
@@ -138,6 +141,7 @@ lsy.seatSelect=(()=> {
 	var init=()=> {
 		if ($('#tnb_step_btn_right').hasClass('btn-right on')) {
 			alert('좌석선택 페이지 갑니다');
+			location.href=$$('x')+"/move/selectSeat";
 		}
 		else {
 			return false;
@@ -157,6 +161,7 @@ lsy.date=(()=> {
 			return false;
 		}
 		setContentView();
+		$('#theater_text').text('');
 		$('#row_time_detail').text('');
 		$('#day_selected_ul>li').removeClass('selected');
 		$('#date_select_detail').remove();
